@@ -21,7 +21,7 @@ public class ModifyArticleService {
 			if(article == null) {
 				throw new ArticleNotFoundException();
 			}
-			if(!canModify(modReq.getUserEmail(),article)) {
+			if(!canModify(modReq.getUserName(),article)) {
 				throw new PermissionDeniedException();
 			}
 			contentDao.update(conn,modReq.getArticleNumber(),modReq.getContent(), modReq.getFileName());

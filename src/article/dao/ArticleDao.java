@@ -154,6 +154,7 @@ public class ArticleDao {
 					pstmt.executeUpdate();
 			}
 	}
+	// 게시판 목록 수정 
 	public int update(Connection conn, int no, String title, String localName) throws SQLException{
 		try(PreparedStatement pstmt=
 				conn.prepareStatement(
@@ -161,7 +162,6 @@ public class ArticleDao {
 						"where article_no =?")){
 			pstmt.setString(1, title);
 			pstmt.setString(2, localName );
-			
 			pstmt.setInt(3,no);
 			return pstmt.executeUpdate();
 		}

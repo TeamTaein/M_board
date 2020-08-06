@@ -37,7 +37,7 @@
 	<td colspan="2">
 		<c:set var="pageNo" value="${empty param.pageNo ? '1' : param.pageNo }"></c:set>
 		<a href="list.do?pageNo=${pageNo }">[목록]</a>
-		<c:if test="${authUser.email == articleData.article.writer.id }">
+		<c:if test="${authUser.name == articleData.article.writer.id }"> <!-- writer.id는 이름 -->
 			<a href="modify.do?no=${articleData.article.number }">[게시글 수정]</a>
 			<a href="delete.do?no=${articleData.article.number }">[게시글 삭제]</a>
 		

@@ -39,11 +39,12 @@ public class ModifyArticleHandler implements CommandHandler {
 				int no =Integer.parseInt(noVal);
 				ArticleData articleData = readService.getArticle(no, false);
 				User authUser = (User)req.getSession().getAttribute("authUser");
+				/* 403 여기일수도 */
 				if(!canModify(authUser, articleData)) {
 					res.sendError(HttpServletResponse.SC_FORBIDDEN);
 					return null;
 				}
-				ModifyRequest modReq = new ModifyRequest(authUser.getEmail(), no, 
+				ModifyRequest modReq = new ModifyRequest(authUser.getName(), no, 
 						articleData.getArticle().getTitle(),
 						articleData.getContent(), 
 						articleData.getFileName(), 
@@ -61,15 +62,15 @@ public class ModifyArticleHandler implements CommandHandler {
 	
 	private boolean canModify(User authUser, ArticleData articleData) {
 		String writerId = articleData.getArticle().getWriter().getId();
-		return authUser.getEmail().equals(writerId);
+		return authUser.getName().equals(writerId);
 	}
 	private String processSubmit(HttpServletRequest req, HttpServletResponse res)
 			throws Exception{
 			User authUser =(User)req.getSession().getAttribute("authUser");
 			String noVal = req.getParameter("no");
 			int no = Integer.parseInt(noVal);
-			
-			ModifyRequest modReq = new ModifyRequest(authUser.getEmail(), no,req.getParameter("title"),
+			/* 403 여기일수도 */
+			ModifyRequest modReq = new ModifyRequest(authUser.getName(), no,req.getParameter("title"),
 					req.getParameter("content"), req.getParameter("fileName"),req.getParameter("localName"));
 			req.setAttribute("modReq", modReq);
 			
@@ -78,6 +79,7 @@ public class ModifyArticleHandler implements CommandHandler {
 			modReq.validate(errors);
 			if(!errors.isEmpty()) {
 				return FORM_VIEW;
+				/* 403 에러 여기 같음 */
 			}try {
 				modifyService.modify(modReq);
 				return "/WEB-INF/view/modifySuccess.jsp";
