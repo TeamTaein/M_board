@@ -5,7 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import article.service.SearchArticleService;
 import auth.service.ArticlePage;
-import mvc.controller.CommandHandler;
+import mvc.controller.CommandHandler; 
 
 public class SearchArticleHandler implements CommandHandler {
 	 

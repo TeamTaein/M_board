@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import article.dao.ArticleDao;
-import article.model.Article;
 import jdbc.JdbcUtil;
 import jdbc.connection.ConnectionProvider;
 
@@ -27,7 +26,7 @@ public class SelectLocalNameCountTest extends HttpServlet {
     public SelectLocalNameCountTest() {
         super();
         // TODO Auto-generated constructor stub
-    }
+    } 
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)

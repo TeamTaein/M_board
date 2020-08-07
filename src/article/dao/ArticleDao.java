@@ -223,7 +223,7 @@ public class ArticleDao {
 	         return pstmt.executeUpdate();
 	      } finally {
 	         JdbcUtil.close(pstmt);
-	      }
+	      } 
 	   }
 	
 	// 지역명 검색

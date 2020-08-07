@@ -1,10 +1,9 @@
 package article.service;
 
-import java.sql.Connection;
+import java.sql.Connection; 
 import java.sql.SQLException;
 import java.util.List;
 
-import article.dao.ArticleContentDao;
 import article.dao.ArticleDao;
 import article.model.Article;
 import auth.service.ArticlePage;
