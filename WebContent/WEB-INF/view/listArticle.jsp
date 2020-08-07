@@ -49,6 +49,7 @@ table.type09 td {
 
 <div class="container">
 <table class="type09">
+
 	<tr class="header"><h1>게시판</h1></tr>
 	<tr>
 		<td colspan="5"><a href="write.do">[게시글쓰기]</a>
@@ -63,14 +64,15 @@ table.type09 td {
 		<th>작성자</th>
 		<th>조회수</th>
 	</tr>
-	
+
 <c:if test="${articlePage.hasNoArticles() }">
-	<tr>
-		<td colspan="4">게시글이 없습니다.</td>
-	</tr>	
+   <tr>
+      <td colspan="4">게시글이 없습니다.</td>
+   </tr>   
 </c:if>
 
 <c:forEach var="article" items="${articlePage.content }">
+
 	<tr>
 		<td>${article.number }</td>
 		<td>
@@ -83,11 +85,13 @@ table.type09 td {
 		<td>${article.writer.id }</td>
 		<td>${article.readCount }</td>
 	</tr>
+
 </c:forEach>
 </table>
 
 <br />
 <nav aria-label="Page navigation example">
+
 	<ul class="pagination justify-content-center">
 	<c:if test="${articlePage.hasArticles() }">
 		<li class="page-item">
@@ -106,6 +110,7 @@ table.type09 td {
 		</c:if>
 	</ul>
 </nav>
+
 
 
 </div>

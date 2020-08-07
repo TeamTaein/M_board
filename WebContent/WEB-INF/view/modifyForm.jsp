@@ -28,7 +28,9 @@ ${modReq.articleNumber }
 <c:if test="${errors.title }">제목을 입력하세요</c:if>
 </p>
 
+
 	지역: <br />
+
 <input type="text" name="localName" value="${modReq.localName}" />
 <br />
 

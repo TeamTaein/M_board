@@ -46,6 +46,7 @@ table.type03 td {
 <div class="container">
 <table class="type03">
 <tr>
+
 	<th scope="row">작성자</th>
 	<td>${articleData.article.writer.id }</td>
 </tr>
@@ -67,10 +68,12 @@ table.type03 td {
 			<img class="rounded float-left" src="/images/${articleData.article.number }/${articleData.fileName }" alt="" />
 		</c:if>
 		</td>	
+
 </tr>
 
 
 <tr>
+
 	<td colspan="2">
 		<c:set var="pageNo" value="${empty param.pageNo ? '1' : param.pageNo }"></c:set>
 		<a href="list.do?pageNo=${pageNo }">[목록]</a>
@@ -79,6 +82,7 @@ table.type03 td {
 			<a href="delete.do?no=${articleData.article.number }">[게시글 삭제]</a>		
 		</c:if>	
 	</td>	
+
 </tr>
 </table>
 

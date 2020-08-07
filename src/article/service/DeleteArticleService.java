@@ -8,8 +8,10 @@ import jdbc.connection.ConnectionProvider;
 
 public class DeleteArticleService {
 
+
 	private ArticleDao articleDao = new ArticleDao();
 	private ArticleContentDao contentDao = new ArticleContentDao();
+
 
 
 	public void delete(DeleteArticleRequest deleteReq) throws Exception {
@@ -23,5 +25,7 @@ public class DeleteArticleService {
 				contentDao.delete(conn, article.getNumber());
 
 
+
 			}
 		}
+

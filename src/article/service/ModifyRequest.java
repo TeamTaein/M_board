@@ -30,7 +30,9 @@ public class ModifyRequest {
 	}
 	public String getContent() {
 		return content;
+
 	}	
+
 	
 	public String getLocalName() {
 		return localName;

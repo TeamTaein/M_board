@@ -20,6 +20,8 @@
 <body>
 게시글이 삭제되었습니다.
 <br />
+
 <a href="${ctxPath }/article/list.do">[게시글 목록]</a>
+
 </body>
 </html>
