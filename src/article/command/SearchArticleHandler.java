@@ -13,7 +13,7 @@ public class SearchArticleHandler implements CommandHandler {
 
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws Exception {
-		
+		 
 		//pageNo 파라미터 값을 이용해서 읽어올 페이지 번호를 구한다
 		String pageNoVal = req.getParameter("pageNo");
 		String localName = req.getParameter("localName");

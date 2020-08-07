@@ -34,7 +34,7 @@ public class SelectLocalNameCountTest extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		Connection conn = null;
-		
+		 
 		try {
 			
 			conn = ConnectionProvider.getConnection();

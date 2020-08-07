@@ -21,7 +21,7 @@ public class ArticleDao {
 		PreparedStatement pstmt = null;
 		Statement stmt = null;
 		ResultSet rs = null;
-		
+		 
 		try {
 			//insert 쿼리를 실행하여 테이블에 데이터 삽입
 			//article_no 컬럼은 자동증가 컬럼이므로 값 지정하지 않음

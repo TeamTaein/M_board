@@ -28,7 +28,7 @@ public class SearchArticleService {
 			return new ArticlePage(total, pageNum, size, content);
 	 		
 		} catch (SQLException e) {
-			e.printStackTrace();
+			e.printStackTrace(); 
 			throw new RuntimeException(e);
 		}
 	}

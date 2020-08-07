@@ -20,7 +20,7 @@ table.type09 {
     text-align: left;
     line-height: 1.5;
 
-}
+} 
 table.type09 thead th {
     padding: 10px;
     font-weight: bold;
