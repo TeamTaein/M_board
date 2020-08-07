@@ -427,6 +427,7 @@ margin-left: 30px;
 	<a href="logout.do" class="text-danger">[로그아웃하기]</a>
 	<a href="${ctxPath }/article/write.do">[글 작성]</a>
 	<a href="changePwd.do">[암호변경하기]</a>
+	<a href="${ctxPath }/article/list.do">[글목록 보기]</a>
 
 </u:isLogin>
  

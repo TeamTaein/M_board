@@ -166,6 +166,18 @@ public class ArticleDao {
 			return pstmt.executeUpdate();
 		}
 	}
+	//게시판 목록 삭제
+	public int delete(Connection conn, int no) throws SQLException {
+	      PreparedStatement pstmt = null;
+	      try {
+	         pstmt = conn.prepareStatement("delete from article "
+	               + "where article_no=?");
+	         pstmt.setInt(1, no);
+	         return pstmt.executeUpdate();
+	      } finally {
+	         JdbcUtil.close(pstmt);
+	      }
+	   }
 
 
 	
