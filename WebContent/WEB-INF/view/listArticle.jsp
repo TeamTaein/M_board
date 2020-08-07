@@ -49,22 +49,22 @@ table.type09 td {
 
 <div class="container">
 <table class="type09">
-   <tr class="header"><h1>게시판</h1></tr>
-   <tr>
-      <td colspan="5"><a href="write.do">[게시글쓰기]</a>
-      <u:isLogin><a href="/m_board/logout.do" class="text-danger">[로그아웃하기]</a></u:isLogin>
-      </td>
-      
-   </tr>   
-    
-   <tr>
-      <th>번호</th>
-      <th>제목</th>
-      <th>지역</th>
-      <th>작성자</th>
-      <th>조회수</th>
-   </tr>
-   
+
+	<tr class="header"><h1>게시판</h1></tr>
+	<tr>
+		<td colspan="5"><a href="write.do">[게시글쓰기]</a>
+		<u:isLogin><a href="${ctxPath }logout.do" class="text-danger">[로그아웃하기]</a></u:isLogin>
+		</td>		
+	</tr>	
+	 
+	<tr>
+		<th>번호</th>
+		<th>제목</th>
+		<th>지역</th>
+		<th>작성자</th>
+		<th>조회수</th>
+	</tr>
+
 <c:if test="${articlePage.hasNoArticles() }">
    <tr>
       <td colspan="4">게시글이 없습니다.</td>
@@ -72,41 +72,46 @@ table.type09 td {
 </c:if>
 
 <c:forEach var="article" items="${articlePage.content }">
-   <tr>
-      <td>${article.number }</td>
-      <td>
-         <a href="read.do?no=${article.number }&pageNo=${articlePage.currentPage}">
-            <c:out value="${article.title }"></c:out>
-         </a>
-      </td>
-      
-      <td>${article.localName }</td>
-      <td>${article.writer.id }</td>
-      <td>${article.readCount }</td>
-   </tr>
+
+	<tr>
+		<td>${article.number }</td>
+		<td>
+			<a href="read.do?no=${article.number }&pageNo=${articlePage.currentPage}">
+				<c:out value="${article.title }"></c:out>
+			</a>
+		</td>
+		
+		<td>${article.localName }</td>		
+		<td>${article.writer.id }</td>
+		<td>${article.readCount }</td>
+	</tr>
+
 </c:forEach>
 </table>
 
 <br />
 <nav aria-label="Page navigation example">
-   <ul class="pagination justify-content-center">
-   <c:if test="${articlePage.hasArticles() }">
-      <li class="page-item">
-         <c:if test="${articlePage.startPage > 5 }">
-            <a class="page-link" href="list.do?pageNo=${articlePage.startPage - 5 }">이전</a>
-         </c:if>      
-      </li>         
-         <c:forEach var="pNo" begin="${articlePage.startPage }" end="${articlePage.endPage }">
-         <li class="page-item">   <a class="page-link" href="list.do?pageNo=${pNo }">${pNo }</a></li>
-         </c:forEach>      
-      <li class="page-item">   
-         <c:if test="${articlePage.endPage < articlePage.totalPages }">
-            <a class="page-link" href="list.do?pageNo=${articlePage.startPage + 5 }">다음</a>
-         </c:if>         
-      </li>
-      </c:if>
-   </ul>
+
+	<ul class="pagination justify-content-center">
+	<c:if test="${articlePage.hasArticles() }">
+		<li class="page-item">
+			<c:if test="${articlePage.startPage > 5 }">
+				<a class="page-link" href="list.do?pageNo=${articlePage.startPage - 5 }">이전</a>
+			</c:if>		
+		</li>			
+			<c:forEach var="pNo" begin="${articlePage.startPage }" end="${articlePage.endPage }">
+			<li class="page-item">	<a class="page-link" href="list.do?pageNo=${pNo }">${pNo }</a></li>
+			</c:forEach>		
+		<li class="page-item">	
+			<c:if test="${articlePage.endPage < articlePage.totalPages }">
+				<a class="page-link" href="list.do?pageNo=${articlePage.startPage + 5 }">다음</a>
+			</c:if>			
+		</li>
+		</c:if>
+	</ul>
 </nav>
+
+
 
 </div>
 </body>

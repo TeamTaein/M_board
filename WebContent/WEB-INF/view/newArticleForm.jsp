@@ -24,7 +24,16 @@
 	제목: <br /><input type="text" name="title" value="${param.title }" />
 	<c:if test="${errors.title }">제목을 입력하세요</c:if>
 	<br />
-	지역 : <br /><input type="text" name="local_name" value="${param.local_name }" />
+	
+		
+		
+	지역 : <br />
+	<select name="local_name">
+			<option value="일산">일산</option>
+			<option value="신촌">신촌</option>
+			<option value="이대">이대</option>
+	</select>  
+	<%-- <br /><input type="text" name="local_name" value="${param.local_name }" /> --%>
 </p>
 <p>
 	내용: <br />

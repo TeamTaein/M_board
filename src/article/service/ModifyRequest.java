@@ -7,9 +7,8 @@ public class ModifyRequest {
 	private String userName;    // id -> email->Name 수정
 	private int articleNumber;
 	private String title;
-	private String content;
-	private String fileName;
-	private String localName;// filename 추가
+	private String content;	
+	private String localName;
 	
 	public ModifyRequest(String userName, int articleNumber,
 			String title, String content, String localName) {
@@ -31,8 +30,9 @@ public class ModifyRequest {
 	}
 	public String getContent() {
 		return content;
-	}
-	
+
+	}	
+
 	
 	public String getLocalName() {
 		return localName;

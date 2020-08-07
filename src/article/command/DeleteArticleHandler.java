@@ -19,12 +19,14 @@ public class DeleteArticleHandler implements CommandHandler {
 		int no = Integer.parseInt(numTemp);
 		DeleteArticleRequest deleteReq = new DeleteArticleRequest(no);
 		req.setAttribute("deleteReq", deleteReq);
-		
+
+
 		Map<String, Boolean> errors = new HashMap<String, Boolean>();
 		req.setAttribute("errors", errors);
-		
+
 		deleteReq.validate(errors);
-		
+
+
 		if(!errors.isEmpty()) {
 			return FORM_VIEW;
 		}try {
@@ -35,6 +37,8 @@ public class DeleteArticleHandler implements CommandHandler {
 			return null;
 		}
 	}
-	
+
+
 
 }
+

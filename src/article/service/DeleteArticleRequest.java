@@ -2,6 +2,9 @@ package article.service;
 import java.util.Map;
 public class DeleteArticleRequest {
 	private int articleNumber;
+
+	
+
 	public int getArticleNumber() {
 		return articleNumber;
 	}
@@ -14,4 +17,6 @@ public class DeleteArticleRequest {
 			errors.put("no", Boolean.TRUE);
 		}
 	}
+
 }
+

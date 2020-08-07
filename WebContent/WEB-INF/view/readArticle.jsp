@@ -46,39 +46,43 @@ table.type03 td {
 <div class="container">
 <table class="type03">
 <tr>
-   <th scope="row">작성자</th>
-   <td>${articleData.article.writer.id }</td>
+
+	<th scope="row">작성자</th>
+	<td>${articleData.article.writer.id }</td>
 </tr>
 
 <tr>
-   <th scope="row">제목</th>
-   <td><c:out value="${articleData.article.title }"></c:out></td>
+	<th scope="row">제목</th>
+	<td><c:out value="[${articleData.article.localName }] ${articleData.article.title }"></c:out></td>
 </tr>
 
 <tr>
-   <th scope="row">내용</th>
-   <td>${articleData.content }</td>
+	<th scope="row">내용</th>
+	<td>${articleData.content }</td>
 </tr>
 
 <tr>
-   <th scope="row">영수증 첨부</th>
-      <td style="white-space: pre-wrap;">
-      <c:if test="${not empty articleData.fileName }">
-         <img class="rounded float-left" src="/images/${articleData.article.number }/${articleData.fileName }" alt="" />
-      </c:if>
-      </td>   
+	<th scope="row">영수증 첨부</th>
+		<td style="white-space: pre-wrap;">
+		<c:if test="${not empty articleData.fileName }">
+			<img class="rounded float-left" src="/images/${articleData.article.number }/${articleData.fileName }" alt="" />
+		</c:if>
+		</td>	
+
 </tr>
 
 
 <tr>
-   <td colspan="2">
-      <c:set var="pageNo" value="${empty param.pageNo ? '1' : param.pageNo }"></c:set>
-      <a href="list.do?pageNo=${pageNo }">[목록]</a>
-      <c:if test="${authUser.name == articleData.article.writer.id }">
-         <a href="modify.do?no=${articleData.article.number }">[게시글 수정]</a>
-         <a href="delete.do?no=${articleData.article.number }">[게시글 삭제]</a>      
-      </c:if>   
-   </td>   
+
+	<td colspan="2">
+		<c:set var="pageNo" value="${empty param.pageNo ? '1' : param.pageNo }"></c:set>
+		<a href="list.do?pageNo=${pageNo }">[목록]</a>
+		<c:if test="${authUser.name == articleData.article.writer.id }">
+			<a href="modify.do?no=${articleData.article.number }">[게시글 수정]</a>
+			<a href="delete.do?no=${articleData.article.number }">[게시글 삭제]</a>		
+		</c:if>	
+	</td>	
+
 </tr>
 </table>
 

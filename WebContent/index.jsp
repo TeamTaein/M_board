@@ -427,7 +427,9 @@ margin-left: 30px;
 	<a href="logout.do" class="text-danger">[로그아웃하기]</a>
 	<a href="${ctxPath }/article/write.do">[글 작성]</a>
 	<a href="changePwd.do">[암호변경하기]</a>
-	<a href="${ctxPath }/article/list.do">[글목록 보기]</a>
+
+	<a href="${ctxPath }/article/list.do">[목록보기] </a>
+
 
 </u:isLogin>
  
@@ -465,7 +467,7 @@ margin-left: 30px;
        </div>
        
     </div>
-<div class="cont_forms" hello@java1>
+<div class="cont_forms">
     <div class="cont_img_back_">
        <img src="https://images.unsplash.com/42/U7Fc1sy5SCUDIu4tlJY3_NY_by_PhilippHenzler_philmotion.de.jpg?ixlib=rb-0.3.5&q=50&fm=jpg&crop=entropy&s=7686972873678f32efaf2cd79671673d" alt="" />
        </div>

@@ -7,11 +7,13 @@ import article.model.Article;
 import jdbc.connection.ConnectionProvider;
 
 public class DeleteArticleService {
-	
+
+
 	private ArticleDao articleDao = new ArticleDao();
 	private ArticleContentDao contentDao = new ArticleContentDao();
 
-	
+
+
 	public void delete(DeleteArticleRequest deleteReq) throws Exception {
 		Connection conn = null;
 		conn = ConnectionProvider.getConnection();
@@ -21,8 +23,9 @@ public class DeleteArticleService {
 				}
 				articleDao.delete(conn, article.getNumber());
 				contentDao.delete(conn, article.getNumber());
-				
-				
+
+
+
 			}
 		}
-	
+

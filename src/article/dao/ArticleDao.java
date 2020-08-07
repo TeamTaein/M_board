@@ -154,14 +154,19 @@ public class ArticleDao {
 					pstmt.executeUpdate();
 			}
 	}
-	// 게시판 목록 수정 
+
+	
+	// 게시판 목록 수정
+
 	public int update(Connection conn, int no, String title, String localName) throws SQLException{
 		try(PreparedStatement pstmt=
 				conn.prepareStatement(
 						"update article set title=?, local_name=?, moddate = now()" 
 								+ "where article_no =?" )){
 			pstmt.setString(1, title);
-			pstmt.setString(2, localName);
+
+			pstmt.setString(2, localName );			
+
 			pstmt.setInt(3,no);
 			return pstmt.executeUpdate();
 		}
@@ -178,6 +183,39 @@ public class ArticleDao {
 	         JdbcUtil.close(pstmt);
 	      }
 	   }
+
+	//게시판 목록 삭제
+	public int delete(Connection conn, int no) throws SQLException {
+	      PreparedStatement pstmt = null;
+	      try {
+	         pstmt = conn.prepareStatement("delete from article "
+	               + "where article_no=?");
+	         pstmt.setInt(1, no);
+	         return pstmt.executeUpdate();
+	      } finally {
+	         JdbcUtil.close(pstmt);
+	      }
+	   }
+	
+	// 지역명 검색
+	public Article selectBylocalName(Connection conn, String localName) throws SQLException {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try{			
+			pstmt = conn.prepareStatement(
+					"select * from article where local_name=?");
+			pstmt.setString(1, localName);
+			rs = pstmt.executeQuery();
+			Article article = null;
+			if(rs.next()) {
+				article = convertArticle(rs);
+			}
+			return article;
+		} finally {
+			JdbcUtil.close(rs, pstmt);
+		}
+	}
 
 
 	
