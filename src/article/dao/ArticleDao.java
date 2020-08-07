@@ -83,6 +83,26 @@ public class ArticleDao {
 			JdbcUtil.close(stmt);
 		}
 	}
+	
+	// local_name에 해당하는 게시글 개수 구하는 메서드
+	public int selectLocalNameCount(Connection conn, String localName) throws SQLException{	
+		ResultSet rs = null;
+		PreparedStatement pstmt = null;
+		
+		try {
+			pstmt= conn.prepareStatement("select count(*) from article where local_name =?");
+			
+			pstmt.setString(1, localName);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				return rs.getInt(1);
+			}
+			return 0;
+		} finally {
+			JdbcUtil.close(rs, pstmt);
+		}
+		
+	}
 		
 	//지정한 범위의 게시글을 읽어오기 위한 select()메서드 
 	public List<Article> select(Connection conn, int startRow, int size) throws SQLException{
@@ -94,6 +114,28 @@ public class ArticleDao {
 					+ "order by article_no desc limit ?,?"); // 게시글 번호 역순으로 정렬
 			pstmt.setInt(1, startRow);
 			pstmt.setInt(2, size);
+			rs = pstmt.executeQuery();
+			
+			List<Article> result = new ArrayList<>();
+			while(rs.next()) {
+				result.add(convertArticle(rs));
+			}
+			return result;
+		} finally {
+			JdbcUtil.close(rs, pstmt);
+		}			 	
+	}
+	
+	public List<Article> selectLocal(Connection conn, String localName, int startRow, int size) throws SQLException{
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {			
+			pstmt = conn.prepareStatement("select * from article "
+					+ "where local_name =? order by article_no desc limit ?,?"); // 게시글 번호 역순으로 정렬
+			pstmt.setNString(1, localName);
+			pstmt.setInt(2, startRow);
+			pstmt.setInt(3, size);
 			rs = pstmt.executeQuery();
 			
 			List<Article> result = new ArrayList<>();
@@ -171,19 +213,6 @@ public class ArticleDao {
 			return pstmt.executeUpdate();
 		}
 	}
-	//게시판 목록 삭제
-	public int delete(Connection conn, int no) throws SQLException {
-	      PreparedStatement pstmt = null;
-	      try {
-	         pstmt = conn.prepareStatement("delete from article "
-	               + "where article_no=?");
-	         pstmt.setInt(1, no);
-	         return pstmt.executeUpdate();
-	      } finally {
-	         JdbcUtil.close(pstmt);
-	      }
-	   }
-
 	//게시판 목록 삭제
 	public int delete(Connection conn, int no) throws SQLException {
 	      PreparedStatement pstmt = null;

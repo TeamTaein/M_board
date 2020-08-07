@@ -2,26 +2,36 @@ package article.service;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.List;
 
 import article.dao.ArticleContentDao;
 import article.dao.ArticleDao;
 import article.model.Article;
+import auth.service.ArticlePage;
 import jdbc.connection.ConnectionProvider;
 
 public class SearchArticleService {
 	
-	private ArticleDao articeDao = new ArticleDao();
-	private ArticleContentDao contentDao = new ArticleContentDao();
+	private ArticleDao articleDao = new ArticleDao();
+	private int size = 10;
 	
-	public ArticleData getArticle(String articleStr, boolean increseReadCount) {
-		
-		try(Connection conn = ConnectionProvider.getConnection()) {
-			Article article = ArticleDao.selectBylocalName(conn, articleStr);
+	public ArticlePage getArticlePage(int pageNum, String localName) {
+		try(Connection conn = ConnectionProvider.getConnection()){
+			
+			//전체 게시글의 개수를 구한다
+			int total = articleDao.selectLocalNameCount(conn, localName);
+			
+			//pageNum에 해당하는 게시글 목록을 구한다
+			//articleDao.select의 두번째 파라미터는 조회할 레코드의 시작 행
+			List<Article> content = articleDao.selectLocal(conn, localName, (pageNum-1)*size, size);
+			
+			//ArticlePage 객체 리턴
+			return new ArticlePage(total, pageNum, size, content);
+	 		
 		} catch (SQLException e) {
-			throw new RuntimeException (e);
+			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
-		
 	}
-	
 	
 }

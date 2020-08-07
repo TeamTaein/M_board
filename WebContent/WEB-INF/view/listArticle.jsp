@@ -111,7 +111,16 @@ table.type09 td {
 	</ul>
 </nav>
 
-
+<!-- 검색 기능 -->
+<form action="search.do" method="post">
+	<select name="search_key" id="">
+		<option value="article_title">제목</option>
+		<option value="writer_id">작성자</option>
+		<option value="local_name">지역</option>
+	</select>
+	<input type="text" name="search_rs" />
+	<input type="submit" value="검색" />
+</form>
 
 </div>
 </body>
