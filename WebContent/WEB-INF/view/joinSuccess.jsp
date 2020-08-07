@@ -19,5 +19,6 @@
 </head>
 <body>
 ${param.name }님, 회원가입에 성공했습니다.
+<a href="index.jsp">[메인]</a>
 </body>
 </html>
