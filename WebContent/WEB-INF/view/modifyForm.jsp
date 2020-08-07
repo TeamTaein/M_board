@@ -27,10 +27,16 @@ ${modReq.articleNumber }
 <input type="text" name="title" value="${modReq.title }" />
 <c:if test="${errors.title }">제목을 입력하세요</c:if>
 </p>
+
+	지역: <br />
+<input type="text" name="localName" value="${modReq.localName}" />
+<br />
+
 <p>
 내용 : <br />
 <textarea name="content" cols="30" rows="5">${modReq.content }</textarea>
 </p>
+
 <input type="submit" value="글 수정" />
 </form>
 </body>

@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
-         
+        
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,10 +15,11 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
-<title>가입 완료</title>
+<title>Insert title here</title>
 </head>
 <body>
-${param.name }님, 회원가입에 성공했습니다.
-<a href="index.jsp">[메인]</a>
+게시글이 삭제되었습니다.
+<br />
+<a href="${ctxPath }/article/list.do">[게시글 목록]</a>
 </body>
 </html>

@@ -54,10 +54,10 @@ public class ArticleContentDao {
 	
 	
 	//게시글 데이터 수정 기능
-	public int update(Connection conn, int no,String content, String FileName)
+	public int update(Connection conn, int no,String content)
 			throws SQLException {
 		try (PreparedStatement pstmt = conn.prepareStatement(
-				"UPDATE article SET content=?, FileName=?, moddate=now()"
+				"UPDATE article_content SET content=?"
 						+ " WHERE article_no=?")) {
 			pstmt.setString(1, content);
 			pstmt.setInt(2, no);
@@ -65,6 +65,19 @@ public class ArticleContentDao {
 			return pstmt.executeUpdate();
 		}
 	}
+
+	//게시판 데이터 삭제
+	public int delete(Connection conn, int no) throws SQLException {
+	      PreparedStatement pstmt = null;
+	      try {
+	         pstmt = conn.prepareStatement("delete from article_content "
+	               + "where article_no=?");
+	         pstmt.setInt(1, no);
+	         return pstmt.executeUpdate();
+	      } finally {
+	         JdbcUtil.close(pstmt);
+	      }
+	   }
 
 	
 }
