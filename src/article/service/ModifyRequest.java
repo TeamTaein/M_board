@@ -12,13 +12,12 @@ public class ModifyRequest {
 	private String localName;// filename 추가
 	
 	public ModifyRequest(String userName, int articleNumber,
-			String title, String content, String fileName, String localName) {
+			String title, String content, String localName) {
 		super();
 		this.userName = userName;
 		this.articleNumber = articleNumber;
 		this.title = title;
 		this.content = content;
-		this.fileName = fileName;
 		this.localName = localName;
 	}
 	public String getUserName() {
@@ -33,9 +32,8 @@ public class ModifyRequest {
 	public String getContent() {
 		return content;
 	}
-	public String getFileName() {
-		return fileName;
-	}
+	
+	
 	public String getLocalName() {
 		return localName;
 	}

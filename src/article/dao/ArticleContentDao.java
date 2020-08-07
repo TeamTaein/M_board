@@ -54,10 +54,10 @@ public class ArticleContentDao {
 	
 	
 	//게시글 데이터 수정 기능
-	public int update(Connection conn, int no, String content, String FileName)
+	public int update(Connection conn, int no, String content)
 			throws SQLException {
 		try (PreparedStatement pstmt = conn.prepareStatement(
-				"UPDATE article SET content=?, filename=?, moddate=now()"
+				"UPDATE article_content SET content=?" 
 						+ " WHERE article_no=?")) {
 			pstmt.setString(1, content);
 			pstmt.setInt(2, no);
