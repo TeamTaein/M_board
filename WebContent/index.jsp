@@ -11,10 +11,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="css/bootstrap.css" />
 <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cl`oudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src = "js.bootstrap.js"></script>
 <script>
 /* ------------------------------------ Click on login and Sign Up to  changue and view the effect
 ---------------------------------------
@@ -444,7 +447,7 @@ margin-left: 30px;
 <div class="cont_ba_opcitiy">
         
         <h2>LOGIN</h2>  
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> 
+  <p>Exellent Choice For Foodies.</p> 
   <button class="btn_login" onclick="cambiar_login()">LOGIN</button>
   </div>
   </div>
@@ -453,7 +456,7 @@ margin-left: 30px;
   <h2>SIGN UP</h2>
 
   
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+  <p>Join our community and share your sight.</p>
 
   <button class="btn_sign_up" onclick="cambiar_sign_up()">SIGN UP</button>
 </div>
@@ -474,12 +477,12 @@ margin-left: 30px;
        
   <form action="login.do" method="post">
   <c:if test="${errors.idOrPwNotMatch}">
-	아이디와 암호가 일치하지 않습니다.
+	이메일과 암호가 일치하지 않습니다.
 	</c:if>
  <div class="cont_form_login">
 <a href="#" onclick="ocultar_login_sign_up()" ><i class="material-icons">&#xE5C4;</i></a>
    <h2>LOGIN</h2>
- <input type="text" placeholder="Email" name="email" value="${param.email}" />
+ <input type="email" placeholder="Email" name="email" value="${param.email}" />
 <input type="password" placeholder="Password" name="password"/>
 <button  class="btn_login" onclick="cambiar_login()">LOGIN</button>
   </div>
@@ -488,14 +491,51 @@ margin-left: 30px;
 <a href="#" onclick="ocultar_login_sign_up()"><i class="material-icons">&#xE5C4;</i></a>
     <form action="join.do" method="post">
      <h2>SIGN UP</h2>
+<div class="form-group">
 <input type="text" placeholder="Email" name="email" value="${param.email}" >
+<span class="text-danger">
+	<c:if test="${errors.email }">이메일을 입력하세요</c:if>
+	<c:if test="${errors.duplicateEmail}">이미 사용중인 이메일입니다.</c:if>
+	</span>	
+</div>
+<div class="form-group">
 <input type="text" placeholder="User" name="name" value="${param.name}" />
+<span class="text-danger">
+	<c:if test="${errors.name }">이름을 입력하세요</c:if>
+	</span>
+</div>
+<div class="form-group">
 <input type="password" placeholder="Password" name="password" />
+<span class="text-danger">
+	<c:if test="${errors.password }">암호를 입력하세요</c:if>
+	</span>
+</div>
+<div class="form-group">
 <input type="password" placeholder="Confirm Password" name="confirmPassword" />
+<span class="text-danger">
+	<c:if test="${errors.confirmPassword }">확인을 입력하세요</c:if>
+	<c:if test="${errors.notMatch }">암호와 확인이 일치하지 않습니다.</c:if>
+	</span>
+</div>
+<div class="form-group">
 <input type="text" placeholder="nickname" name="id" value="${param.id}"/><br />
-<label ><input type="radio" name="gender" value="male" />남자</label>
-<label ><input type="radio" name="gender" value="femail" />여자</label><br />
+	<span class="text-danger">
+<c:if test="${errors.id }">닉네임을 입력하세요</c:if>
+<c:if test="${errors.duplicateId}">이미 사용중인 닉네임입니다.</c:if>
+	</span>
+</div>
+<div class="form-group" style="text-align: center;">
+	<div class="btn-group" data-toggle="buttons">
+	<label class="btn btn-primary active">
+		<input type="radio" nae="gender" autocomplete="off" value="male" checked />남성
+	</label>
+	<label class="btn btn-primary ">
+		<input type="radio" nae="gender" autocomplete="off" value="female" checked />여성
+	</label>
+	</div>
+</div>
 <button class="btn_sign_up" onclick="cambiar_sign_up()">SIGN UP</button>
+
 </form>
   </div>
 

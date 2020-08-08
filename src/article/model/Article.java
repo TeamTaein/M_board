@@ -22,6 +22,7 @@ public class Article {
 		this.regDate = regDate;
 		this.modifiedDate = modifiedDate;
 		this.readCount = readCount;
+		
 	}
 
 	public Integer getNumber() {

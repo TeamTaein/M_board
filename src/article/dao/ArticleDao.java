@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import com.mysql.cj.util.StringUtils;
+
 import article.model.Article;
 import article.model.Writer;
 import jdbc.JdbcUtil;
@@ -84,19 +86,30 @@ public class ArticleDao {
 		}
 	}
 	
-	// local_name에 해당하는 게시글 개수 구하는 메서드
-	public int selectLocalNameCount(Connection conn, String localName) throws SQLException{	
+	// 검색결과에 해당하는 게시글 개수 구하는 메서드
+	public int selectSearchCount(Connection conn, String searchKey , String searchRs) throws SQLException{	
 		ResultSet rs = null;
 		PreparedStatement pstmt = null;
 		
 		try {
-			pstmt= conn.prepareStatement("select count(*) from article where local_name =?");
+			//pstmt= conn.prepareStatement("select count(*) from article where ? like ?");
+			String sql = "select count(*) from article where " + searchKey  + " like ?";
+			System.out.println(sql);
+			pstmt= conn.prepareStatement(sql);	
+			pstmt.setString(1, "%" + searchRs + "%");
+
 			
-			pstmt.setString(1, localName);
+
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
+				System.out.println(rs.getInt(1));
 				return rs.getInt(1);
 			}
+			/*
+			 * else { System.out.println("error"); }
+			 */
+				
+			
 			return 0;
 		} finally {
 			JdbcUtil.close(rs, pstmt);
@@ -125,25 +138,38 @@ public class ArticleDao {
 			JdbcUtil.close(rs, pstmt);
 		}			 	
 	}
+	//검색한 범위의 게시글을 읽어오기 위한 select() 메서드
 	
-	public List<Article> selectLocal(Connection conn, String localName, int startRow, int size) throws SQLException{
+	public List<Article> selectSearch(Connection conn, String searchKey, String searchRs, int startRow, int size) throws SQLException{
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
 		try {			
-			pstmt = conn.prepareStatement("select * from article "
-					+ "where local_name =? order by article_no desc limit ?,?"); // 게시글 번호 역순으로 정렬
-			pstmt.setNString(1, localName);
-			pstmt.setInt(2, startRow);
-			pstmt.setInt(3, size);
+			
+			/*
+			 * pstmt = conn.prepareStatement("select * from article " +
+			 * "where ? like ? order by article_no desc limit ?,?"); // 게시글 번호 역순으로 정렬
+			 */			
+			String sql = "select * "
+							+ "from article "
+								+ "where " + searchKey + " like ? order by article_no desc " ;//limit ?,?";
+			
+			pstmt = conn.prepareStatement(sql);
+			//System.out.println(sql);			
+
+			//pstmt.setString(1, "%" + searchRs + "%");
+			pstmt.setString(1, "%" + searchRs + "%");
+			//pstmt.setInt(2, startRow);
+			//pstmt.setInt(3, size);	
+
 			rs = pstmt.executeQuery();
 			
 			List<Article> result = new ArrayList<>();
-			while(rs.next()) {
+			while(rs.next()) {				
 				result.add(convertArticle(rs));
 			}
 			return result;
-		} finally {
+		} finally {			
 			JdbcUtil.close(rs, pstmt);
 		}			 	
 	}
@@ -160,7 +186,7 @@ public class ArticleDao {
 				toDate(rs.getTimestamp("moddate")),
 				rs.getInt("read_cnt"));		
 	}
-
+	
 	private Date toDate(Timestamp timestamp) {
 		return new Date(timestamp.getTime());
 	}
@@ -185,6 +211,29 @@ public class ArticleDao {
 			JdbcUtil.close(pstmt);
 		}
 	}
+	// //검색한 정보에 해당하는 게시글 데이터 읽기
+		public Article selectBySearchRs(Connection conn, String searchKey,String searchRs) throws SQLException {
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			
+			try{			
+				pstmt = conn.prepareStatement(
+						"select * "
+						+ "from article"
+						+ " where "
+						+ searchKey
+						+ " like ?");
+				pstmt.setString(1, "%"+ searchRs + "%");
+				rs = pstmt.executeQuery();
+				Article article = null;
+				if(rs.next()) {
+					article = convertArticle(rs);
+				}
+				return article;
+			} finally {
+				JdbcUtil.close(rs, pstmt);
+			}
+		}
 	
 	//특정 번호에 해당하는 게시글 데이터의 조회수 증가하기
 	public void increaseReadCount(Connection conn, int no) throws SQLException{
@@ -226,25 +275,7 @@ public class ArticleDao {
 	      }
 	   }
 	
-	// 지역명 검색
-	public Article selectBylocalName(Connection conn, String localName) throws SQLException {
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		
-		try{			
-			pstmt = conn.prepareStatement(
-					"select * from article where local_name=?");
-			pstmt.setString(1, localName);
-			rs = pstmt.executeQuery();
-			Article article = null;
-			if(rs.next()) {
-				article = convertArticle(rs);
-			}
-			return article;
-		} finally {
-			JdbcUtil.close(rs, pstmt);
-		}
-	}
+	
 
 
 	
