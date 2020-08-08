@@ -20,7 +20,7 @@ table.type09 {
     text-align: left;
     line-height: 1.5;
 
-}
+} 
 table.type09 thead th {
     padding: 10px;
     font-weight: bold;
@@ -50,10 +50,10 @@ table.type09 td {
 <div class="container">
 <table class="type09">
 
-	<tr class="header"><h1>게시판</h1></tr>
+	<tr class="header"><h1>게시판</h1></tr> 
 	<tr>
 		<td colspan="5"><a href="write.do">[게시글쓰기]</a>
-		<u:isLogin><a href="${ctxPath }logout.do" class="text-danger">[로그아웃하기]</a></u:isLogin>
+		<u:isLogin><a href="${ctxPath }/logout.do" class="text-danger">[로그아웃하기]</a></u:isLogin>
 		</td>		
 	</tr>	
 	 
@@ -112,9 +112,9 @@ table.type09 td {
 </nav>
 
 <!-- 검색 기능 -->
-<form action="search.do" method="post">
+<form action="search.do" method="get">
 	<select name="search_key" id="">
-		<option value="article_title">제목</option>
+		<option value="title">제목</option>
 		<option value="writer_id">작성자</option>
 		<option value="local_name">지역</option>
 	</select>

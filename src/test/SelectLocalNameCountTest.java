@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import article.dao.ArticleDao;
-import article.model.Article;
 import jdbc.JdbcUtil;
 import jdbc.connection.ConnectionProvider;
 
@@ -27,7 +26,7 @@ public class SelectLocalNameCountTest extends HttpServlet {
     public SelectLocalNameCountTest() {
         super();
         // TODO Auto-generated constructor stub
-    }
+    } 
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -35,12 +34,12 @@ public class SelectLocalNameCountTest extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		Connection conn = null;
-		
+		 
 		try {
 			
 			conn = ConnectionProvider.getConnection();
 			ArticleDao dao = new ArticleDao();
-			int count = dao.selectLocalNameCount(conn, "서울");
+			int count = dao.selectSearchCount(conn, "", "서");
 			System.out.println("지역 = "+count);
 		} catch(Exception e) {
 			e.printStackTrace();

@@ -20,7 +20,7 @@ public class ArticlePage {
 		this.content = content;
 		 
 		//전체 게시글 개수가 0개면 
-		if(total == 0) {
+		if(total == 0) { 
 			totalPages = 0;	// 전체 페이지 개수 0
 			startPage = 0;	// 시작 번호 0
 			endPage = 0;	// 끝 번호 0으로 할당				

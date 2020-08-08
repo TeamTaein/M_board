@@ -21,7 +21,7 @@ public class ArticleDao {
 		PreparedStatement pstmt = null;
 		Statement stmt = null;
 		ResultSet rs = null;
-		
+		 
 		try {
 			//insert 쿼리를 실행하여 테이블에 데이터 삽입
 			//article_no 컬럼은 자동증가 컬럼이므로 값 지정하지 않음
@@ -71,8 +71,11 @@ public class ArticleDao {
 		ResultSet rs = null;
 		
 		try {
+			System.out.println("--------------------------");
+			String sql = "select count(*) from article";
 			stmt = conn.createStatement();
-			rs = stmt.executeQuery("select count(*) from article");
+			rs = stmt.executeQuery(sql);
+			System.out.println("selectCount sql :  "+sql);
 			if(rs.next()) {
 				// 첫번째 결과값 리턴
 				return rs.getInt(1);
@@ -85,16 +88,39 @@ public class ArticleDao {
 	}
 	
 	// local_name에 해당하는 게시글 개수 구하는 메서드
-	public int selectLocalNameCount(Connection conn, String localName) throws SQLException{	
+	public int selectSearchCount(Connection conn, String searchKey, String searchRs) throws SQLException{	
 		ResultSet rs = null;
 		PreparedStatement pstmt = null;
 		
 		try {
-			pstmt= conn.prepareStatement("select count(*) from article where local_name =?");
+//			if(searchKey == "title") {
+//				String sql = "select count(*) from article where title like ?";
+//				pstmt = conn.prepareStatement(sql);
+//				pstmt.setString(1, "%"+searchRs+"%");
+//
+//			} else if(searchKey == "writer_id") {
+//				String sql = "select count(*) from article where wrtier_id like ?";
+//				pstmt = conn.prepareStatement(sql);
+//				pstmt.setString(1, "%"+searchRs+"%");
+//
+//			} else if(searchKey == "local_name") {
+//				String sql = "select count(*) from article where local_name like ?";
+//				pstmt = conn.prepareStatement(sql);
+//				pstmt.setString(1, "%"+searchRs+"%");
+//
+//			}
+			String sql ="select count(*) from article where "+searchKey+" like ?";
+			pstmt = conn.prepareStatement(sql);			
+			System.out.println("selectSearchCount sql :" + sql );
+//			pstmt.setString(1, searchKey);
+//			System.out.println("searchKey :  "+ searchKey);
+			pstmt.setString(1, "%"+searchRs+"%");
+			System.out.println("searchRs :  "+searchRs);
 			
-			pstmt.setString(1, localName);
-			rs = pstmt.executeQuery();
+			rs = pstmt.executeQuery();		
+			
 			if(rs.next()) {
+				System.out.println("rs.getInt :  "+rs.getInt(1));
 				return rs.getInt(1);
 			}
 			return 0;
@@ -109,11 +135,15 @@ public class ArticleDao {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
-		try {			
-			pstmt = conn.prepareStatement("select * from article "
-					+ "order by article_no desc limit ?,?"); // 게시글 번호 역순으로 정렬
-			pstmt.setInt(1, startRow);
+		try {	
+			String sql = "select * from article "
+					+ "order by article_no desc limit ?,?";
+			pstmt = conn.prepareStatement(sql); // 게시글 번호 역순으로 정렬
+			System.out.println("List<Article> select :  "+sql);
+			pstmt.setInt(1, startRow);	
+			System.out.println("listArticle startRow :  "+startRow);
 			pstmt.setInt(2, size);
+			System.out.println("listArticle size :  "+size);
 			rs = pstmt.executeQuery();
 			
 			List<Article> result = new ArrayList<>();
@@ -126,16 +156,53 @@ public class ArticleDao {
 		}			 	
 	}
 	
-	public List<Article> selectLocal(Connection conn, String localName, int startRow, int size) throws SQLException{
+	public List<Article> selectSearch(Connection conn, String searchKey, String searchRs, int startRow, int size) throws SQLException{
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
-		try {			
-			pstmt = conn.prepareStatement("select * from article "
-					+ "where local_name =? order by article_no desc limit ?,?"); // 게시글 번호 역순으로 정렬
-			pstmt.setNString(1, localName);
-			pstmt.setInt(2, startRow);
+		try {
+			
+//			if(searchKey == "title") {
+//				String sql = "select * from article where title like ? order by article_no desc limit ?,?";
+//				pstmt = conn.prepareStatement(sql);
+//				pstmt.setString(1, "%"+searchRs+"%");
+//				pstmt.setInt(2, startRow);
+//				pstmt.setInt(3, size);
+//			} else if(searchKey == "writer_id") {
+//				String sql = "select * from article where wrtier_id like ? order by article_no desc limit ?,?";
+//				pstmt = conn.prepareStatement(sql);
+//				pstmt.setString(1, "%"+searchRs+"%");
+//				pstmt.setInt(2, startRow);
+//				pstmt.setInt(3, size);
+//			} else if(searchKey == "local_name") {
+//				String sql = "select * from article where local_name like ? order by article_no desc limit ?,?";
+//				pstmt = conn.prepareStatement(sql);
+//				pstmt.setString(1, "%"+searchRs+"%");
+//				pstmt.setInt(2, startRow);
+//				pstmt.setInt(3, size);
+//			}
+//			rs = pstmt.executeQuery();
+//			List<Article> result = new ArrayList<>();
+//			while(rs.next()) {
+//				result.add(convertArticle(rs));
+//			}
+//			return result;
+			
+			String sql = "select * from article "
+					+ "where "+searchKey+" like ? order by article_no desc limit ?,?"; // 게시글 번호 역순으로 정렬
+			
+			pstmt = conn.prepareStatement(sql); 
+			System.out.println("List<Article> selectSearch :  "+sql);
+//			pstmt.setString(1, searchKey);
+//			System.out.println("searchKey :  "+searchKey);
+			pstmt.setString(1,"%"+searchRs+"%");
+			System.out.println("searchRs :  "+searchRs);
+			pstmt.setInt(2, startRow);			
+			System.out.println("startRow :  " +startRow);
+			
 			pstmt.setInt(3, size);
+			
+			System.out.println("size :  "+size);
 			rs = pstmt.executeQuery();
 			
 			List<Article> result = new ArrayList<>();
@@ -143,6 +210,7 @@ public class ArticleDao {
 				result.add(convertArticle(rs));
 			}
 			return result;
+			
 		} finally {
 			JdbcUtil.close(rs, pstmt);
 		}			 	
@@ -223,18 +291,22 @@ public class ArticleDao {
 	         return pstmt.executeUpdate();
 	      } finally {
 	         JdbcUtil.close(pstmt);
-	      }
+	      } 
 	   }
 	
 	// 지역명 검색
-	public Article selectBylocalName(Connection conn, String localName) throws SQLException {
+	public Article selectBySearchRs(Connection conn, String searchKey, String searchRs) throws SQLException {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
 		try{			
-			pstmt = conn.prepareStatement(
-					"select * from article where local_name=?");
-			pstmt.setString(1, localName);
+			String sql = "select * from article where "+searchKey+" like ?";
+			pstmt = conn.prepareStatement(sql);
+			System.out.println("selectBySearchRs sql :  "+sql);
+//			pstmt.setString(1, searchKey);
+//			System.out.println("searchKey :  "+ searchKey);
+			pstmt.setNString(1, "%"+searchRs+"%");
+			System.out.println("searchRs :  "+searchRs);
 			rs = pstmt.executeQuery();
 			Article article = null;
 			if(rs.next()) {

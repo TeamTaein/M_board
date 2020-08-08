@@ -5,7 +5,7 @@
 
         
 <!DOCTYPE html>
-<html>
+<html> 
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,7 +19,7 @@
 </head>
 <body>
 
-<!-- 검색 기능 -->
+<!-- 검색 기능 --> 
 <form action="search.do" method="post">
 	<select name="search_key" id="">
 		<option value="article_title">제목</option>
