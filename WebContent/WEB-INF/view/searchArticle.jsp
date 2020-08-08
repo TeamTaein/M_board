@@ -53,7 +53,10 @@ table.type09 td {
 	<tr class="header"><h1>게시판</h1></tr> 
 	<tr>
 		<td colspan="5"><a href="write.do">[게시글쓰기]</a>
-		<u:isLogin><a href="${ctxPath }/logout.do" class="text-danger">[로그아웃하기]</a></u:isLogin>
+		<u:isLogin>
+		<a href="list.do">[목록]</a>
+		<a href="${ctxPath }/logout.do" class="text-danger">[로그아웃하기]</a>		
+		</u:isLogin>
 		</td>		
 	</tr>	
 	 
