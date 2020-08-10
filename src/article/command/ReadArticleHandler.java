@@ -2,10 +2,12 @@ package article.command;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import article.service.ArticleContentNotFoundException;
 import article.service.ArticleData;
 import article.service.ArticleNotFoundException;
+import article.service.NumforComment;
 import article.service.ReadArticleService;
 import mvc.controller.CommandHandler;
 
@@ -15,7 +17,11 @@ public class ReadArticleHandler implements CommandHandler {
 	@Override
 	public String process(HttpServletRequest req,
 			HttpServletResponse res) throws Exception {
-
+		
+		HttpSession session = req.getSession();
+		String writer = req.getParameter("writer");
+		
+		
 		String noVal = req.getParameter("no");
 		int articleNum = Integer.parseInt(noVal);
 		
@@ -23,6 +29,11 @@ public class ReadArticleHandler implements CommandHandler {
 			
 			ArticleData articleData = readService.getArticle(articleNum, true);
 			req.setAttribute("articleData", articleData);
+			
+			NumforComment numforComment = new NumforComment(articleData.getArticle().getNumber());
+			session.setAttribute("NumforComment", numforComment.getArticleNumber());
+			System.out.println(numforComment.getArticleNumber());
+			
 			return "/WEB-INF/view/readArticle.jsp";
 			
 		} catch (ArticleNotFoundException | ArticleContentNotFoundException e) {
@@ -32,7 +43,9 @@ public class ReadArticleHandler implements CommandHandler {
 			return null;
 		}
 	}
+	
 }
+
 
 
 

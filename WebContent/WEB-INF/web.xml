@@ -51,6 +51,7 @@
   	<url-pattern>/article/modify.do</url-pattern>
   	<url-pattern>/article/delete.do</url-pattern> 
   	<url-pattern>/article/search.do</url-pattern>
+  	<url-pattern>/article/commentwrite.do</url-pattern>
   	 	
 
   </filter-mapping>

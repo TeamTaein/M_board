@@ -54,6 +54,7 @@ table.type09 td {
 	<tr>
 		<td colspan="5"><a href="write.do">[게시글쓰기]</a>
 		<u:isLogin><a href="${ctxPath }/logout.do" class="text-danger">[로그아웃하기]</a></u:isLogin>
+		<a href="list.do">[목록]</a>
 		</td>		
 	</tr>	
 	 

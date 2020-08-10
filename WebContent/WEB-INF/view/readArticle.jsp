@@ -85,6 +85,11 @@ table.type03 td {
 
 </tr>
 </table>
+<form action="commentwrite.do" method="post">
+댓글: <br />
+<textarea name="commentContent" rows="5" cols="30">${param.commentContent }</textarea>
+<input type="submit" value="댓글 등록"/>
+</form>
 
 </div>
 </body>

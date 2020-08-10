@@ -2,7 +2,8 @@ package article.model;
 
 public class Writer {
 	
-	private String id;	
+	private String id;
+	
 	
 	public Writer(String id) {
 		this.id = id;		
