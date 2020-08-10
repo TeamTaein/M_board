@@ -71,7 +71,7 @@ public class ArticleDao {
 		ResultSet rs = null;
 		
 		try {
-			System.out.println("--------------------------");
+			/* System.out.println("--------------------------"); */
 			String sql = "select count(*) from article";
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(sql);
