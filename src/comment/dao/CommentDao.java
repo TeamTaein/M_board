@@ -65,7 +65,7 @@ public class CommentDao {
 		 ResultSet rs = null;
 		 
 		 try {
-			 pstmt = conn.prepareStatement("select count(*) from article "
+			 pstmt = conn.prepareStatement("select count(*) from article_comment "
 			 								+ " where article_no = ? ");
 			 pstmt.setInt(1,articleNum);
 			 rs = pstmt.executeQuery();
@@ -108,6 +108,36 @@ public class CommentDao {
 	 }
 	 private static Date toDate(Timestamp timestamp) {
 		 return new Date(timestamp.getTime());
+	 }
+	 
+	 public static Comment selectByNo(Connection conn, int no)throws SQLException{
+		 PreparedStatement pstmt = null;
+		 ResultSet rs = null;
+		 try {
+			 pstmt = conn.prepareStatement("select * from article_comment where comment_no=?");
+			 pstmt.setInt(1, no);
+			 rs = pstmt.executeQuery();
+			 Comment comment = null;
+			 if(rs.next()) {
+				 comment = convertArticle(rs);
+			 }
+			 return comment;
+		 }finally {
+			 JdbcUtil.close(rs);
+			 JdbcUtil.close(pstmt);
+		 }
+	 }
+	 
+	 
+	 public int delete(Connection conn, int no) throws SQLException{
+		 PreparedStatement pstmt = null;
+		 try {
+			 pstmt= conn.prepareStatement("delete from article_comment where comment_no=?");
+			 pstmt.setInt(1, no);
+			 return pstmt.executeUpdate();
+		 }finally {
+			 JdbcUtil.close(pstmt);
+		 }
 	 }
 
 	 
