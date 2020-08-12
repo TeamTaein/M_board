@@ -32,7 +32,8 @@ public class WriteCommentHandler implements CommandHandler {
 		HttpSession session = req.getSession();
 		Map<String, Boolean>errors = new HashMap<>();
 		req.setAttribute("errors", errors);
-		Integer ArticleNum = (Integer)session.getAttribute("NumforComment");
+		
+		Integer ArticleNum = (Integer)session.getAttribute("NumForComment");
 		// 댓글에 해당되는 페이지 이름 세션값으로 받아오기
 		User user =(User)session.getAttribute("authUser");
 		// 로그인 세션으로 댓글 작성자 정보 세션값으로 받아오기 

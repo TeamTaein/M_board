@@ -1,9 +1,9 @@
 package article.service;
-public class NumforComment{
+public class NumForComment{
 	private Integer articleNumber;
 	
 	
-	public NumforComment(Integer articleNumber) {
+	public NumForComment(Integer articleNumber) {
 		this.articleNumber = articleNumber;
 		
 	}

@@ -85,12 +85,45 @@ table.type03 td {
 
 </tr>
 </table>
+
+
 <form action="commentwrite.do" method="post">
 댓글: <br />
-<textarea name="commentContent" rows="5" cols="30">${param.commentContent }</textarea>
+<textarea name="commentContent" rows="5" cols="30">${param.commentContent}</textarea>
 <input type="submit" value="댓글 등록"/>
 </form>
+<table>
+	<tr>
+	<td>작성자</td><br />
+	<c:out value = "commentWriter"/>
+	<td>내용</td>
+	<c:out value = "recievedCommentContent" />
+	<td>작성시간</td>
+	<c:out value =	"commentModate"  />
+	</tr>
+</table>
 
+
+<nav aria-label="Page navigation example">
+
+	<ul class="pagination justify-content-center">
+	<c:if test="${commentPage.hasComments()}">
+		<li class="page-item">
+			<c:if test="${commentPage.startPage > 5 }">
+				<a class="page-link" href="read.do?no=${articleData.article.number}?pageCno=${commentPage.startPage - 5 }">이전</a>
+			</c:if>		
+		</li>			
+			<c:forEach var="cpNo" begin="${commentPage.startPage }" end="${commentPage.endPage }">
+			<li class="page-item">	<a class="page-link" href="read.do?no=${articleData.article.number}?pageCno=${cpNo}">${cpNo}</a></li>
+			</c:forEach>		
+		<li class="page-item">	
+			<c:if test="${commentPage.endPage < commentPage.totalPages }">
+				<a class="page-link" href="read.do?no=${articleData.article.number}?pageCno=${commentPage.startPage + 5}">다음</a>
+			</c:if>			
+		</li>
+		</c:if>
+	</ul>
+</nav>
 </div>
 </body>
 </html>

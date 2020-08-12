@@ -8,7 +8,6 @@ import java.util.List;
 import comment.model.Comment;
 import comment.model.CommentWriter;
 import jdbc.JdbcUtil;
-import comment.service.CommentPage;
 public class CommentDao {
 	
 	
@@ -84,7 +83,8 @@ public class CommentDao {
 		 ResultSet rs = null;
 		 try {
 			 pstmt = conn.prepareStatement(" select * from article_comment "
-			 								+ "	where article_no=? desc limit ?,? " );
+			 								+ "	where article_no=?"
+			 								+ " order by comment_no desc limit ?,? " );
 			 pstmt.setInt(1, articleNum);
 			 pstmt.setInt(2, startRow);
 			 pstmt.setInt(3, size);
@@ -103,7 +103,7 @@ public class CommentDao {
 				 new CommentWriter(rs.getString("comment_id")),
 				 rs.getInt("comment_no"),
 				 rs.getString("comment_content"),
-				 toDate(rs.getTimestamp("regdate")));
+				 toDate(rs.getTimestamp("comment_regdate")));
 				 
 	 }
 	 private static Date toDate(Timestamp timestamp) {
@@ -115,6 +115,24 @@ public class CommentDao {
 		 ResultSet rs = null;
 		 try {
 			 pstmt = conn.prepareStatement("select * from article_comment where comment_no=?");
+			 pstmt.setInt(1, no);
+			 rs = pstmt.executeQuery();
+			 Comment comment = null;
+			 if(rs.next()) {
+				 comment = convertArticle(rs);
+			 }
+			 return comment;
+		 }finally {
+			 JdbcUtil.close(rs);
+			 JdbcUtil.close(pstmt);
+		 }
+	 }
+	 
+	 public static Comment selectByArNo(Connection conn, int no)throws SQLException{
+		 PreparedStatement pstmt = null;
+		 ResultSet rs = null;
+		 try {
+			 pstmt = conn.prepareStatement("select * from article_comment where article_no=?");
 			 pstmt.setInt(1, no);
 			 rs = pstmt.executeQuery();
 			 Comment comment = null;

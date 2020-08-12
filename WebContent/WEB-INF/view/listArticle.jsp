@@ -100,7 +100,7 @@ table.type09 td {
 			</c:if>		
 		</li>			
 			<c:forEach var="pNo" begin="${articlePage.startPage }" end="${articlePage.endPage }">
-			<li class="page-item">	<a class="page-link" href="list.do?pageNo=${pNo }">${pNo }</a></li>
+			<li class="page-item">	<a class="page-link" href="list.do?pageNo=${pNo}">${pNo }</a></li>
 			</c:forEach>		
 		<li class="page-item">	
 			<c:if test="${articlePage.endPage < articlePage.totalPages }">

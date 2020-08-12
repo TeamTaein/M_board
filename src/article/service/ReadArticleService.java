@@ -7,7 +7,6 @@ import article.dao.ArticleContentDao;
 import article.dao.ArticleDao;
 import article.model.Article;
 import article.model.ArticleContent;
-import article.model.Writer;
 import jdbc.connection.ConnectionProvider;
 
 public class ReadArticleService {

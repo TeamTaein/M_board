@@ -36,6 +36,12 @@ public class CommentPage {
 	public int getTotal() {
 		return total;
 	}
+	public boolean hasNoComments() {
+		return total == 0;
+	}
+	public boolean hasComments() {
+		return total>0;
+	}
 	public int getCurrentPage() {
 		return currentPage;
 	}

@@ -3,13 +3,13 @@ package comment.service;
 import java.util.Map;
 
 
-import auth.service.User;
 import comment.model.CommentWriter;
 
 public class WriteCommentRequest {
 	private Integer articleNum;
 	private CommentWriter commentWriter;
 	private String commentContent;
+	
 	public Integer getArticleNum() {
 		return articleNum;
 	}
