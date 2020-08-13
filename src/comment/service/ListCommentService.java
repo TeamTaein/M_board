@@ -24,25 +24,19 @@ public class ListCommentService {
 		}
 	}
 	//20200812 11:10 여기서부터 널값
-	public String getCommentWriter(Integer articleNum) {
-		try(Connection conn = ConnectionProvider.getConnection()){
-			String commentWriter = CommentDao.selectByArNo(conn, articleNum).getCommentWriter().getName();
-			System.out.println(commentWriter);
-			return commentWriter;
-		}catch(SQLException ex) {
-			ex.printStackTrace();
-			throw new RuntimeException(ex);
-		}
-	}
-	public Comment regdateContent(Integer articleNum) {
-		try(Connection conn = ConnectionProvider.getConnection()){
-			Comment comment = CommentDao.selectByArNo(conn, articleNum);
-			return comment;
-		}catch(SQLException exc){
-			exc.printStackTrace();
-			throw new RuntimeException(exc);
-		}
-		
-	}
+	/*
+	 * public String getCommentWriter(Integer articleNum) { try(Connection conn =
+	 * ConnectionProvider.getConnection()){ String commentWriter =
+	 * CommentDao.selectByArNo(conn, articleNum).getCommentWriter().getName();
+	 * System.out.println(commentWriter); return commentWriter; }catch(SQLException
+	 * ex) { ex.printStackTrace(); throw new RuntimeException(ex); } } public
+	 * Comment regdateContent(Integer articleNum) { try(Connection conn =
+	 * ConnectionProvider.getConnection()){ Comment comment =
+	 * CommentDao.selectByArNo(conn, articleNum); return comment;
+	 * }catch(SQLException exc){ exc.printStackTrace(); throw new
+	 * RuntimeException(exc); }
+	 * 
+	 * }
+	 */
 
 }

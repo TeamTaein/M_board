@@ -23,9 +23,6 @@ public class ListArticleService {
 			//pageNum에 해당하는 게시글 목록을 구한다
 			//articleDao.select의 두번째 파라미터는 조회할 레코드의 시작 행
 			List<Article> content = articleDao.select(conn, (pageNum -1) * size, size);
-			
-			System.out.println("listArticle Content:  "+content.size());
-			System.out.println("listArticle PageNum:  "+ pageNum);
 			//ArticlePage 객체 리턴
 			return new ArticlePage(total, pageNum, size, content);
 	 		

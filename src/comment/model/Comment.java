@@ -7,8 +7,8 @@ import java.util.Date;
  *
  */
 public class Comment {
-		private Integer articleNum;
-		private CommentWriter commentWriter;
+		private Integer articleNum; // 글번호
+		private CommentWriter commentWriter; //작성자
 	    private Integer commentNo;        // 댓글 글번호     
 	    private String commentContent;      // 댓글 내용
 	    private Date regDate;   // 댓글 작성일

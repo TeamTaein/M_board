@@ -139,11 +139,8 @@ public class ArticleDao {
 			String sql = "select * from article "
 					+ "order by article_no desc limit ?,?";
 			pstmt = conn.prepareStatement(sql); // 게시글 번호 역순으로 정렬
-			System.out.println("List<Article> select :  "+sql);
 			pstmt.setInt(1, startRow);	
-			System.out.println("listArticle startRow :  "+startRow);
 			pstmt.setInt(2, size);
-			System.out.println("listArticle size :  "+size);
 			rs = pstmt.executeQuery();
 			
 			List<Article> result = new ArrayList<>();
@@ -161,48 +158,15 @@ public class ArticleDao {
 		ResultSet rs = null;
 		
 		try {
-			
-//			if(searchKey == "title") {
-//				String sql = "select * from article where title like ? order by article_no desc limit ?,?";
-//				pstmt = conn.prepareStatement(sql);
-//				pstmt.setString(1, "%"+searchRs+"%");
-//				pstmt.setInt(2, startRow);
-//				pstmt.setInt(3, size);
-//			} else if(searchKey == "writer_id") {
-//				String sql = "select * from article where wrtier_id like ? order by article_no desc limit ?,?";
-//				pstmt = conn.prepareStatement(sql);
-//				pstmt.setString(1, "%"+searchRs+"%");
-//				pstmt.setInt(2, startRow);
-//				pstmt.setInt(3, size);
-//			} else if(searchKey == "local_name") {
-//				String sql = "select * from article where local_name like ? order by article_no desc limit ?,?";
-//				pstmt = conn.prepareStatement(sql);
-//				pstmt.setString(1, "%"+searchRs+"%");
-//				pstmt.setInt(2, startRow);
-//				pstmt.setInt(3, size);
-//			}
-//			rs = pstmt.executeQuery();
-//			List<Article> result = new ArrayList<>();
-//			while(rs.next()) {
-//				result.add(convertArticle(rs));
-//			}
-//			return result;
+		
 			
 			String sql = "select * from article "
 					+ "where "+searchKey+" like ? order by article_no desc limit ?,?"; // 게시글 번호 역순으로 정렬
 			
 			pstmt = conn.prepareStatement(sql); 
-			System.out.println("List<Article> selectSearch :  "+sql);
-//			pstmt.setString(1, searchKey);
-//			System.out.println("searchKey :  "+searchKey);
 			pstmt.setString(1,"%"+searchRs+"%");
-			System.out.println("searchRs :  "+searchRs);
 			pstmt.setInt(2, startRow);			
-			System.out.println("startRow :  " +startRow);
-			
 			pstmt.setInt(3, size);
-			
-			System.out.println("size :  "+size);
 			rs = pstmt.executeQuery();
 			
 			List<Article> result = new ArrayList<>();
@@ -302,11 +266,7 @@ public class ArticleDao {
 		try{			
 			String sql = "select * from article where "+searchKey+" like ?";
 			pstmt = conn.prepareStatement(sql);
-			System.out.println("selectBySearchRs sql :  "+sql);
-//			pstmt.setString(1, searchKey);
-//			System.out.println("searchKey :  "+ searchKey);
 			pstmt.setNString(1, "%"+searchRs+"%");
-			System.out.println("searchRs :  "+searchRs);
 			rs = pstmt.executeQuery();
 			Article article = null;
 			if(rs.next()) {

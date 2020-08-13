@@ -3,7 +3,7 @@ import java.util.List;
 import comment.model.Comment;
 
 public class CommentPage {
-	private Integer articleNum;
+	private Integer articleNum; //게시물 번호
 	private int total; // 게시물 안 전체 댓글 개수
 	private int currentPage; // 현재 댓글 페이지
 	private  List<Comment> content; //한 게시물 안 화면에 출력할 게시물 배열로 저장
@@ -17,14 +17,20 @@ public class CommentPage {
 		this.total = total;
 		this.currentPage = currentPage;
 		this.content = content;
-		if(totalPages ==0) {
+		
+		
+		if(total ==0) {
 			totalPages=0;
 			startPage = 0;
 			endPage =0;
 			
 		}else {
-			startPage = (currentPage-1)/5*5+1;
-			endPage = startPage+4;
+			totalPages = total/size;
+			if(total%size>0) {
+				totalPages++;
+			}
+			startPage = ((currentPage-1) / 5 * 5) + 1;
+			endPage = startPage + 4;
 			endPage = Math.min(endPage, totalPages);
 		}
 		

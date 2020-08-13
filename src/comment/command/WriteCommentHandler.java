@@ -1,5 +1,6 @@
 package comment.command;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -40,16 +41,23 @@ public class WriteCommentHandler implements CommandHandler {
 		WriteCommentRequest writeReq = createCommentWriteRequest(ArticleNum,user,req);
 		System.out.println(writeReq.getCommentWriter()+ "핸들러에서 작성자 값 받음");
 		System.out.println(writeReq.getArticleNum()+"핸들러에서 게시글 번호 값 받음");
+		System.out.println(req.getParameter("commentContent"));
 		writeReq.validate(errors);
 		
-		if(!errors.isEmpty()) {
-			return FORM_VIEW;
-		}
+		if(errors.isEmpty()) {
+		
 		Integer newCommentNo = commentWriteService.write(writeReq);
 		req.setAttribute("newCommentNo", newCommentNo);
 		System.out.println(newCommentNo+"서비스 돌아가 핸들러에서 댓글 번호 받음");
+		String listPageNo = session.getAttribute("listNo").toString();
+		try {
+			 res.sendRedirect("read.do?no="+ArticleNum+"&pageNo="+listPageNo);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		}
+		return null;
 		
-		return FORM_VIEW;
 	}
 
 	private WriteCommentRequest createCommentWriteRequest(Integer ArticleNum, User user, HttpServletRequest req) {
