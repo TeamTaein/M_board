@@ -19,7 +19,7 @@
     <param-name>poolConfig</param-name>
     <param-value>
   		jdbcdriver=com.mysql.cj.jdbc.Driver
-  		jdbcUrl=jdbc:mysql://localhost:3308/m_board?serverTimezone=Asia/Seoul
+  		jdbcUrl=jdbc:mysql://localhost/m_board?serverTimezone=Asia/Seoul
   		dbUser=root
   		dbPass=rootpw
   		validationQuery=SELECT 1
@@ -59,8 +59,7 @@
   	<url-pattern>/article/delete.do</url-pattern> 
   	<url-pattern>/article/search.do</url-pattern>
   	<url-pattern>/article/commentwrite.do</url-pattern>
-  	 	
-
+  	<url-pattern>/article/commentdelete.do</url-pattern>
   </filter-mapping>
   
   <servlet>

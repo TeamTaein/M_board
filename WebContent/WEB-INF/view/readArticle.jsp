@@ -109,6 +109,9 @@ table.type03 td {
 		<td>${comment.commentWriter.name }</td>		
 		<td>${comment.commentContent }</td>
 		<td>${comment.regDate }</td>
+		<c:if test="${authUser.name == comment.commentWriter.name }">
+		<td><a href="commentdelete.do?comment_no=${comment.commentNo }">[댓글삭제]</a></td>	
+		</c:if>	
 	</tr>
 
 </c:forEach>
