@@ -17,7 +17,7 @@ public class LoginService {
 				throw new LoginFailException();
 			}
 	 		
-			return new User(member.getEmail(), member.getName());
+			return new User(member.getEmail(), member.getId());
 		}catch(SQLException e) {
 			throw new RuntimeException(e);
 		}

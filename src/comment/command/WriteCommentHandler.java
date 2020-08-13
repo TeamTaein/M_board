@@ -58,7 +58,7 @@ public class WriteCommentHandler implements CommandHandler {
 	}
 
 	private WriteCommentRequest createCommentWriteRequest(Integer ArticleNum, User user, HttpServletRequest req) {
-		return new WriteCommentRequest(ArticleNum, new CommentWriter(user.getName()),req.getParameter("commentContent"));
+		return new WriteCommentRequest(ArticleNum, new CommentWriter(user.getId()),req.getParameter("commentContent"));
 	}
 
 	private String processForm(HttpServletRequest req, HttpServletResponse res) {

@@ -77,7 +77,7 @@ table.type03 td {
 	<td colspan="2">
 		<c:set var="pageNo" value="${empty param.pageNo ? '1' : param.pageNo}"></c:set>
 		<a href="list.do?pageNo=1">[목록]</a>
-		<c:if test="${authUser.name == articleData.article.writer.id}">
+		<c:if test="${authUser.id == articleData.article.writer.id}">
 			<a href="modify.do?no=${articleData.article.number }">[게시글 수정]</a>
 			<a href="delete.do?no=${articleData.article.number }">[게시글 삭제]</a>		
 		</c:if>	
@@ -109,7 +109,7 @@ table.type03 td {
 		<td>${comment.commentWriter.name }</td>		
 		<td>${comment.commentContent }</td>
 		<td>${comment.regDate }</td>
-		<c:if test="${authUser.name == comment.commentWriter.name }">
+		<c:if test="${authUser.id == comment.commentWriter.name }">
 		<td><a href="commentdelete.do?comment_no=${comment.commentNo }">[댓글삭제]</a></td>	
 		</c:if>	
 	</tr>
