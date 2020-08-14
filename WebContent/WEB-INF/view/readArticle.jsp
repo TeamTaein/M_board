@@ -123,15 +123,15 @@ table.type03 td {
 	<c:if test="${commentPage.hasComments() }">
 		<li class="page-item">
 			<c:if test="${commentPage.startPage > 5 }">
-				<a class="page-link" href="read.do?no=${articleData.article.number}?pageCno=${commentPage.startPage - 5 }">이전</a>
+				<a class="page-link" href="read.do?no=${articleData.article.number}&pageCno=${commentPage.startPage - 5 }">이전</a>
 			</c:if>		
 		</li>			
 			<c:forEach var="cpNo" begin="${commentPage.startPage }" end="${commentPage.endPage }">
-			<li class="page-item">	<a class="page-link" href="read.do?no=${articleData.article.number}?pageCno=${cpNo}">${cpNo }</a></li>
+			<li class="page-item">	<a class="page-link" href="read.do?no=${articleData.article.number}&pageCno=${cpNo}">${cpNo }</a></li>
 			</c:forEach>		
 		<li class="page-item">	
 			<c:if test="${commentPage.endPage < commentPage.totalPages }">
-				<a class="page-link" href="read.do??no=${articleData.article.number}pageCno=${commentPage.startPage + 5 }">다음</a>
+				<a class="page-link" href="read.do?no=${articleData.article.number}&pageCno=${commentPage.startPage + 5 }">다음</a>
 			</c:if>			
 		</li>
 		</c:if>

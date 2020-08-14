@@ -38,10 +38,6 @@ public class ReadArticleHandler implements CommandHandler {
 			//게시물 열람기능 끝
 			
 			
-			
-			
-			
-			
 			//댓글 리스트 페이지 번호 리퀘스트에서받아옴
 			String pageNoVal = req.getParameter("pageCno");
 			int pageNo =1;

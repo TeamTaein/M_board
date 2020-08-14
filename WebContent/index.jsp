@@ -490,15 +490,15 @@ margin-left: 30px;
     <br /><br />
      <h2>SIGN UP</h2><br />
 <input type="text" placeholder="Email" name="email" value="${param.email}" />
-<c:if test="${errors.email}"><script type="text/javascript">alert('이메일을 입력해주세요');</script></c:if>
+<c:if test="${!empty errors.email}"><script type="text/javascript">alert('이메일을 입력해주세요');</script></c:if>
 <input type="text" placeholder="User" name="name" value="${param.name}" />
-<c:if test="${errors.name}"><script type="text/javascript">alert('이름을 입력해주세요');</script></c:if>
+<c:if test="${!empty errors.name}"><script type="text/javascript">alert('이름을 입력해주세요');</script></c:if>
 <input type="password" placeholder="Password" name="password" value="${param.password}" />
-<c:if test="${errors.password}"><script type="text/javascript">alert('비밀번호을 입력해주세요');</script></c:if>
+<c:if test="${!empty errors.password}"><script type="text/javascript">alert('비밀번호을 입력해주세요');</script></c:if>
 <input type="password" placeholder="Confirm Password" name="confirmPassword" value="${param.confirmPassword}" />
-<c:if test="${errors.conformPassword}"><script type="text/javascript">alert('비밀번호를 다시 입력해주세요');</script></c:if>
+<c:if test="${!empty errors.conformPassword}"><script type="text/javascript">alert('비밀번호를 다시 입력해주세요');</script></c:if>
 <input type="text" placeholder="nickname" name="id" value="${param.id}"/><br />
-<c:if test="${errors.id}"><script type="text/javascript">alert('닉네임을 입력해주세요');</script></c:if>
+<c:if test="${!empty errors.id}"><script type="text/javascript">alert('닉네임을 입력해주세요');</script></c:if>
 <label ><input type="radio" name="gender" value="male" checked />남자</label>
 <label ><input type="radio" name="gender" value="femail" />여자</label><br />
 <button class="btn_sign_up" onclick="cambiar_sign_up()">SIGN UP</button>

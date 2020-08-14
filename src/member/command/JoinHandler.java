@@ -1,6 +1,5 @@
 package member.command;
 
-import java.io.IOException;
 import java.util.HashMap; 
 import java.util.Map;
 
@@ -65,15 +64,9 @@ public class JoinHandler implements CommandHandler {
 			// 동일한 아이디로 가입한 회원이 존재
 			// => errors에 "duplicateId" 키 추가, joinForm.jsp 뷰 리턴
 			errors.put("duplicateId", Boolean.TRUE);
-			try {
-				res.sendRedirect(FORM_VIEW);
-			} catch (IOException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-					
-			};
+		
 		}
-		return null;
+		return FORM_VIEW;
 	}
 }
 
