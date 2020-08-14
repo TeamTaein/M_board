@@ -419,6 +419,11 @@ font-weight: 400;
     margin: 10px;
 margin-left: 30px;
 }
+
+.welcome{
+	font-family: 'Nanum Pen Script', cursive;
+	font-size: 20px;
+}
 </style>
 <title>회원제 게시판 예제</title>
 </head>
@@ -426,10 +431,11 @@ margin-left: 30px;
 
 <u:isLogin>
 <div>
+<div class="welcome">
 
+Welcome ${authUser.id }!!
 
-<p>Welcome ${authUser.id }!!</p>
-
+</div>
 
 	
 
