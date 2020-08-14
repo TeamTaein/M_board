@@ -40,6 +40,7 @@ public class JoinService {
 			conn.commit();
 			//SQLException 발생시 트랜잭션 롤백, RuntimeException 발생
 		} catch (SQLException e) {
+			e.printStackTrace();
 			JdbcUtil.rollback(conn);
 			throw new RuntimeException(e);
 		} finally {
