@@ -41,8 +41,9 @@ public class WriteCommentHandler implements CommandHandler {
 		WriteCommentRequest writeReq = createCommentWriteRequest(ArticleNum,user,req);
 		writeReq.validate(errors);
 		
-		if(errors.isEmpty()) {
-		
+		if(!errors.isEmpty()) {
+			return FORM_VIEW;
+		}
 		Integer newCommentNo = commentWriteService.write(writeReq);
 		req.setAttribute("newCommentNo", newCommentNo);
 		
@@ -52,8 +53,8 @@ public class WriteCommentHandler implements CommandHandler {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		}
-			return null;
+		return null;
+			
 		
 	}
 

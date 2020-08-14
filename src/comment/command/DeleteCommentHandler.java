@@ -19,20 +19,20 @@ public class DeleteCommentHandler implements CommandHandler {
 	public String process(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		HttpSession session = req.getSession();
 		String numTemp = req.getParameter("comment_no");
-		System.out.println(numTemp +"삭제핸들러에서 댓글번호를 받움");
+
 		int commentNo = Integer.parseInt(numTemp);
 		DeleteCommentRequest deleteReq = new DeleteCommentRequest(commentNo);
 		req.setAttribute("deleteReq", deleteReq);
 		
-		Map<String, Boolean>errors = new HashMap<String, Boolean>();
+		Map<String, Boolean>errors = new HashMap<>();
 		req.setAttribute("errors", errors);
 		deleteReq.validate(errors);
 		
 		if(errors.isEmpty()) {
 			String listPageNo = session.getAttribute("listNo").toString();
-			System.out.println("삭제핸들러에서 댓글리스트번호 받음");
+		
 			Integer ArticleNum = (Integer)session.getAttribute("NumForComment");
-			System.out.println("삭제핸들러에서 게시물번호 이름 받음");
+		
 		try {
 			deleteService.delete(deleteReq);
 			res.sendRedirect("read.do?no="+ArticleNum+"&pageNo="+listPageNo);

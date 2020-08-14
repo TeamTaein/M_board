@@ -258,25 +258,6 @@ public class ArticleDao {
 	      } 
 	   }
 	
-	// 지역명 검색
-	public Article selectBySearchRs(Connection conn, String searchKey, String searchRs) throws SQLException {
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		
-		try{			
-			String sql = "select * from article where "+searchKey+" like ?";
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setNString(1, "%"+searchRs+"%");
-			rs = pstmt.executeQuery();
-			Article article = null;
-			if(rs.next()) {
-				article = convertArticle(rs);
-			}
-			return article;
-		} finally {
-			JdbcUtil.close(rs, pstmt);
-		}
-	}
 
 
 	

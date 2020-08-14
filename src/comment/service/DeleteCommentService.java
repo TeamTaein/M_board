@@ -11,8 +11,8 @@ public class DeleteCommentService {
 	
 	
 	public void delete(DeleteCommentRequest deleteReq)throws Exception{
-		Connection conn = null;
-		conn = ConnectionProvider.getConnection();
+		
+		Connection conn = ConnectionProvider.getConnection();
 		Comment comment = commentDao.selectByNo(conn, deleteReq.getCommentNo());
 		if(comment==null) {
 			throw new CommentNotFoundException();

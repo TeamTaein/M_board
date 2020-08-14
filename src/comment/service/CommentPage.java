@@ -6,8 +6,8 @@ public class CommentPage {
 	private Integer articleNum; //게시물 번호
 	private int total; // 게시물 안 전체 댓글 개수
 	private int currentPage; // 현재 댓글 페이지
-	private  List<Comment> content; //한 게시물 안 화면에 출력할 게시물 배열로 저장
-	private int totalPages; // 게시물 안 전체 댓글의 개수
+	private  List<Comment> content; //한 게시물 안 화면에 출력할 댓글 배열로 저장
+	private int totalPages; // 게시물 안 전체 댓글 페이지의 개수
 	private int startPage;	// 시작 댓글페이지의 번호
 	private int endPage;	//끝번호
 	
