@@ -35,11 +35,8 @@ public class SearchArticleHandler implements CommandHandler {
 			searchKey = req.getParameter("search_key");		
 
 			session.setAttribute("search_key", searchKey);
-		}
-		
-		String searchKeyValue = (String)session.getAttribute("search_key");
-		String searchRsValuse = (String)session.getAttribute("search_rs");
-		
+		}		
+
 		if(pageNoVal != null) {
 			pageNo = Integer.parseInt(pageNoVal);
 		}
