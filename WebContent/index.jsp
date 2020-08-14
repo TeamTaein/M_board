@@ -489,7 +489,7 @@ margin-left: 30px;
     <form action="join.do" method="post">
     <br /><br />
      <h2>SIGN UP</h2><br />
-<input type="text" placeholder="Email" name="email" value="${param.email}" />
+<input type="email" placeholder="Email" name="email" value="${param.email}" />
 <c:if test="${!empty errors.email}"><script type="text/javascript">alert('이메일을 입력해주세요');</script></c:if>
 <input type="text" placeholder="User" name="name" value="${param.name}" />
 <c:if test="${!empty errors.name}"><script type="text/javascript">alert('이름을 입력해주세요');</script></c:if>

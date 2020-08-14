@@ -23,6 +23,7 @@ public class DeleteCommentHandler implements CommandHandler {
 
 		int commentNo = Integer.parseInt(numTemp);
 		DeleteCommentRequest deleteReq = new DeleteCommentRequest(commentNo);
+		
 		req.setAttribute("deleteReq", deleteReq);
 		
 		Map<String, Boolean>errors = new HashMap<>();
