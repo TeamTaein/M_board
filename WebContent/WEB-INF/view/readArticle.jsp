@@ -85,6 +85,39 @@ table.type03 td {
 
 </tr>
 </table>
+</div>
+<br />
+
+<div class="container">
+<table>
+	<tr>
+		<th>작성자</th>
+		<th>내용</th>
+		<th>작성시간</th>
+	</tr>
+<c:if test="${commentPage.hasNoComments() }">
+	<tr>
+		<td colspan="4">댓글이 없습니다.</td>
+	</tr>
+</c:if>
+	
+<c:forEach var="comment" items="${commentPage.content }">
+	
+	<tr>
+		<td>${comment.commentWriter.name }</td>
+		<td>${comment.cmtContent }</td>
+		<td>${comment.cmtRegdate }</td>
+		<c:if test="${authUser.name == comment.commentWriter.name}">
+			<td><a href="commentdelete.do?cmtNum=${comment.cmtNum }">[댓글삭제]</a></td>
+		</c:if>	
+	</tr>
+	
+</c:forEach>
+	
+</table>
+
+<br />
+
 
 
 <form action="commentwrite.do" method="post">
@@ -117,12 +150,14 @@ table.type03 td {
 </c:forEach>
 </table>
 
+
 <nav aria-label="Page navigation example">
 
 	<ul class="pagination justify-content-center">
 	<c:if test="${commentPage.hasComments() }">
 		<li class="page-item">
 			<c:if test="${commentPage.startPage > 5 }">
+
 				<a class="page-link" href="read.do?no=${articleData.article.number}&pageCno=${commentPage.startPage - 5 }">이전</a>
 			</c:if>		
 		</li>			
@@ -132,11 +167,20 @@ table.type03 td {
 		<li class="page-item">	
 			<c:if test="${commentPage.endPage < commentPage.totalPages }">
 				<a class="page-link" href="read.do?no=${articleData.article.number}&pageCno=${commentPage.startPage + 5 }">다음</a>
+
 			</c:if>			
 		</li>
 		</c:if>
 	</ul>
 </nav>
+
+
 </div>
+
 </body>
 </html>
+
+
+
+
+

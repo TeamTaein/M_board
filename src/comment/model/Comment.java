@@ -1,3 +1,4 @@
+
 package comment.model;
 
 import java.util.Date;
@@ -44,33 +45,4 @@ public class Comment {
 		}
 
 
-
-
-
-
-
-
-	
-	 
-		
-	    
-	    
-	    
-	    
-	
-	    
-	    
-	    
-	    
-	   
-		
-	    
-	    
-	    
-	    
-	    
-		
-		
-	    
-	    
 

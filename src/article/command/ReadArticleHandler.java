@@ -22,7 +22,9 @@ public class ReadArticleHandler implements CommandHandler {
 			HttpServletResponse res) throws Exception {
 		
 		HttpSession session = req.getSession();
+
 		//리퀘스트에서 게시물 넘버 받아옴
+
 		String noVal = req.getParameter("no");
 		session.setAttribute("listNo", noVal);
 		int articleNum = Integer.parseInt(noVal);
@@ -31,6 +33,7 @@ public class ReadArticleHandler implements CommandHandler {
 		try {
 			//게시물 열람 기능	
 			ArticleData articleData = readService.getArticle(articleNum, true);
+
 			NumForComment numForComment = new NumForComment(articleData.getArticle().getNumber());
 			session.setAttribute("NumForComment", numForComment.getArticleNumber());
 			//게시글 정보 세션 저장
@@ -51,6 +54,7 @@ public class ReadArticleHandler implements CommandHandler {
 				//댓글정보 세션저장
 				session.setAttribute("commentPage", commentPage);
 			//댓글 열람 기능 끝
+
 			return "/WEB-INF/view/readArticle.jsp";
 			
 		} catch (ArticleNotFoundException | ArticleContentNotFoundException e) {

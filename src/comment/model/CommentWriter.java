@@ -1,3 +1,4 @@
+
 package comment.model;
 
 public class CommentWriter {
@@ -15,5 +16,4 @@ public class CommentWriter {
 		  
 		
 	}
-
 

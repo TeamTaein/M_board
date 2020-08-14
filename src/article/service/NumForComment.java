@@ -1,4 +1,6 @@
+
 package article.service;
+//게시글번호 저장
 public class NumForComment{
 	private Integer articleNumber;
 	
@@ -17,3 +19,4 @@ public class NumForComment{
 	/* 댓글 작성을 위한 게시글 번호를 저장하기 위한 클래스 */
 
 }
+
