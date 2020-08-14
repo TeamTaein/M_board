@@ -75,9 +75,9 @@ table.type03 td {
 <tr>
 
 	<td colspan="2">
-		<c:set var="pageNo" value="${empty param.pageNo ? '1' : param.pageNo }"></c:set>
-		<a href="list.do?pageNo=${pageNo }">[목록]</a>
-		<c:if test="${authUser.name == articleData.article.writer.id }">
+		<c:set var="pageNo" value="${empty param.pageNo ? '1' : param.pageNo}"></c:set>
+		<a href="list.do?pageNo=1">[목록]</a>
+		<c:if test="${authUser.id == articleData.article.writer.id}">
 			<a href="modify.do?no=${articleData.article.number }">[게시글 수정]</a>
 			<a href="delete.do?no=${articleData.article.number }">[게시글 삭제]</a>		
 		</c:if>	
@@ -118,31 +118,63 @@ table.type03 td {
 
 <br />
 
+
+
+<form action="commentwrite.do" method="post">
+댓글: <br />
+<textarea name="commentContent" rows="5" cols="30">${param.commentContent}</textarea>
+<input type="submit" value="댓글 등록"/>
+</form>
+<table>
+<tr>
+<th>작성자</th>
+<th>내용</th>
+<th>작성시간</th>
+</tr>
+<c:if test="${commentPage.hasNoComments() }">
+   <tr>
+      <td colspan="4">댓글이 없습니다.</td>
+   </tr>   
+</c:if>
+<c:forEach var="comment" items="${commentPage.content}">
+
+	<tr>
+		<td>${comment.commentWriter.name }</td>		
+		<td>${comment.commentContent }</td>
+		<td>${comment.regDate }</td>
+		<c:if test="${authUser.id == comment.commentWriter.name }">
+		<td><a href="commentdelete.do?comment_no=${comment.commentNo }">[댓글삭제]</a></td>	
+		</c:if>	
+	</tr>
+
+</c:forEach>
+</table>
+
+
 <nav aria-label="Page navigation example">
 
 	<ul class="pagination justify-content-center">
 	<c:if test="${commentPage.hasComments() }">
 		<li class="page-item">
 			<c:if test="${commentPage.startPage > 5 }">
-				<a class="page-link" href="read.do?no=${articleData.article.number }&pageCno=${commentPage.startPage - 5 }">이전</a>
+
+				<a class="page-link" href="read.do?no=${articleData.article.number}&pageCno=${commentPage.startPage - 5 }">이전</a>
 			</c:if>		
 		</li>			
 			<c:forEach var="cpNo" begin="${commentPage.startPage }" end="${commentPage.endPage }">
-			<li class="page-item">	<a class="page-link" href="read.do?no=${articleData.article.number }&pageCno=${cpNo }">${cpNo }</a></li>
+			<li class="page-item">	<a class="page-link" href="read.do?no=${articleData.article.number}&pageCno=${cpNo}">${cpNo }</a></li>
 			</c:forEach>		
 		<li class="page-item">	
 			<c:if test="${commentPage.endPage < commentPage.totalPages }">
-				<a class="page-link" href="read.do?no=${articleData.article.number }&pageCno=${commentPage.startPage + 5 }">다음</a>
+				<a class="page-link" href="read.do?no=${articleData.article.number}&pageCno=${commentPage.startPage + 5 }">다음</a>
+
 			</c:if>			
 		</li>
 		</c:if>
 	</ul>
 </nav>
 
-<form action="commentwriter.do" method="post">
-[comment] <input type="text" name="comment_content" />
-<input type="submit" value="확인" />
-</form>
+
 </div>
 
 </body>

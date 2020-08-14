@@ -44,7 +44,7 @@ public class ModifyArticleHandler implements CommandHandler {
 					res.sendError(HttpServletResponse.SC_FORBIDDEN);
 					return null;
 				}
-				ModifyRequest modReq = new ModifyRequest(authUser.getName(), no, 
+				ModifyRequest modReq = new ModifyRequest(authUser.getId(), no, 
 						articleData.getArticle().getTitle(),
 						articleData.getContent(), 
 						articleData.getArticle().getLocalName());
@@ -61,7 +61,7 @@ public class ModifyArticleHandler implements CommandHandler {
 	
 	private boolean canModify(User authUser, ArticleData articleData) {
 		String writerId = articleData.getArticle().getWriter().getId();
-		return authUser.getName().equals(writerId);
+		return authUser.getId().equals(writerId);
 	}
 	private String processSubmit(HttpServletRequest req, HttpServletResponse res)
 			throws Exception{
@@ -69,7 +69,7 @@ public class ModifyArticleHandler implements CommandHandler {
 			String noVal = req.getParameter("no");
 			int no = Integer.parseInt(noVal);
 			/* 403 여기일수도 */
-			ModifyRequest modReq = new ModifyRequest(authUser.getName(), no,req.getParameter("title"),
+			ModifyRequest modReq = new ModifyRequest(authUser.getId(), no,req.getParameter("title"),
 					req.getParameter("content"),req.getParameter("localName"));
 			req.setAttribute("modReq", modReq);
 			

@@ -423,7 +423,7 @@ margin-left: 30px;
 <body>
 
 <u:isLogin>
-	${authUser.name}님, 안녕하세요 <br />
+	${authUser.id}님, 안녕하세요 <br />
 	<a href="logout.do" class="text-danger">[로그아웃하기]</a>
 	<a href="${ctxPath }/article/write.do">[글 작성]</a>
 	<a href="changePwd.do">[암호변경하기]</a>
@@ -487,15 +487,22 @@ margin-left: 30px;
    <div class="cont_form_sign_up">
 <a href="#" onclick="ocultar_login_sign_up()"><i class="material-icons">&#xE5C4;</i></a>
     <form action="join.do" method="post">
-     <h2>SIGN UP</h2>
-<input type="text" placeholder="Email" name="email" value="${param.email}" >
+    <br /><br />
+     <h2>SIGN UP</h2><br />
+<input type="text" placeholder="Email" name="email" value="${param.email}" />
+<c:if test="${!empty errors.email}"><script type="text/javascript">alert('이메일을 입력해주세요');</script></c:if>
 <input type="text" placeholder="User" name="name" value="${param.name}" />
-<input type="password" placeholder="Password" name="password" />
-<input type="password" placeholder="Confirm Password" name="confirmPassword" />
+<c:if test="${!empty errors.name}"><script type="text/javascript">alert('이름을 입력해주세요');</script></c:if>
+<input type="password" placeholder="Password" name="password" value="${param.password}" />
+<c:if test="${!empty errors.password}"><script type="text/javascript">alert('비밀번호을 입력해주세요');</script></c:if>
+<input type="password" placeholder="Confirm Password" name="confirmPassword" value="${param.confirmPassword}" />
+<c:if test="${!empty errors.conformPassword}"><script type="text/javascript">alert('비밀번호를 다시 입력해주세요');</script></c:if>
 <input type="text" placeholder="nickname" name="id" value="${param.id}"/><br />
-<label ><input type="radio" name="gender" value="male" />남자</label>
+<c:if test="${!empty errors.id}"><script type="text/javascript">alert('닉네임을 입력해주세요');</script></c:if>
+<label ><input type="radio" name="gender" value="male" checked />남자</label>
 <label ><input type="radio" name="gender" value="femail" />여자</label><br />
 <button class="btn_sign_up" onclick="cambiar_sign_up()">SIGN UP</button>
+
 </form>
   </div>
 

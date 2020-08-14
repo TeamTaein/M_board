@@ -55,10 +55,6 @@ public class JoinHandler implements CommandHandler {
 		
 		//errors 맵 객체에 데이터가 존재하면 FORM_VIEW경로 리턴
 		//(데이터가 존재 => JoinReq 객체의 데이터가 올바르지 않아서 에러와 관련된 키를 추가했다는 것을 의미)
-		if(!errors.isEmpty()) {
-			return FORM_VIEW;
-		}
-		
 		//JoinService의 join() 메서드 실행
 		try {
 			// 회원가입에 성공한 경우 joinSuccess.jsp 뷰 리턴
@@ -68,8 +64,9 @@ public class JoinHandler implements CommandHandler {
 			// 동일한 아이디로 가입한 회원이 존재
 			// => errors에 "duplicateId" 키 추가, joinForm.jsp 뷰 리턴
 			errors.put("duplicateId", Boolean.TRUE);
-			return FORM_VIEW;
+		
 		}
+		return FORM_VIEW;
 	}
 }
 

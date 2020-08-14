@@ -1,3 +1,4 @@
+
 package comment.service;
 
 import java.sql.Connection;
@@ -10,52 +11,51 @@ import jdbc.JdbcUtil;
 import jdbc.connection.ConnectionProvider;
 
 public class WriteCommentService {
-	
-	private static CommentDao commentDao = new CommentDao();
+	private CommentDao commentDao = new CommentDao();
 	
 	public Integer write(WriteCommentRequest req) {
 		Connection conn = null;
 		
 		try {
 			conn = ConnectionProvider.getConnection();
-			// 트랜잭션 시작
+			//트랜잭션 시작
 			conn.setAutoCommit(false);
-		
-			//WriteCommentRequest로 부터 Comment 객체 생성
-			//toComment에서 Comment 객체를 생성할 때 number 값으로 null 전달
+			
+			//모델로부터  comment 객체 생성
+			//쿼리 실행후 댓글번호 확인 가능하므로  일단 null 값줌
 			Comment comment = toComment(req);
-			System.out.println(comment.getNumber()+"서비스에서 게시글 번호 받음");
-			//CommentDao의 insert메서드를 실행하고 그 결과를 saveComment에 할당
-			//데이터를 삽입한 경우 null이 아니고, article_comment 테이블에 추가한 데이터의 주요 키값을 number로 갖는다
-			Comment saveComment = commentDao.insert(conn, comment);
-		
-	
-		if(saveComment == null) {
-			throw new RuntimeException("fail to insert comment");
-		}
-		
-		// 트래잭션커밋
-		conn.commit();
-		//새로 추가한 댓글번호  리턴
-		System.out.println(saveComment.getCmtNum()+"서비스에서 댓글번호 받음");
-		return saveComment.getCmtNum(); 
-
-				
-		
-		} catch (SQLException e) {
+			System.out.println(comment.getArticleNum()+"서비스에서 게시글 번호 받음");
+			//Commentdao의 insert 메서드 실행후 그 결과를  savedComment에 전달
+			// 이제 db의 댓글 번호값 가짐
+			System.out.println("이게 마지막이면 dao 문제");
+			Comment savedComment = commentDao.insert(conn, comment);
+			if(savedComment == null) {
+				throw new RuntimeException("fail to insert comment");
+			}
+			conn.commit();
+			System.out.println(savedComment.getCommentNo()+"서비스에서 댓글번호 받음");
+			return savedComment.getCommentNo();
+			//새로 추가한 게시글 번호 리턴
+			
+			
+		}catch(SQLException e) {
 			JdbcUtil.rollback(conn);
 			throw new RuntimeException(e);
-		} catch(RuntimeException e) {
+			
+		}catch(RuntimeException e) {
 			JdbcUtil.rollback(conn);
 			throw e;
-		} finally {
+		}finally {
 			JdbcUtil.close(conn);
-		}		
+		}
+		
 	}
-
-	private static Comment toComment(WriteCommentRequest req) {
-		Date now = new Date();
-		return new Comment(null, req.getArticleNum(),req.getCommentWriter(),now,req.getCommentContent());
+	private Comment toComment(WriteCommentRequest req) {
+		Date now  = new Date();
+		return new Comment(req.getArticleNum(),req.getCommentWriter(),null,req.getCommentContent(),now);
 	}
-
+	
+	
+	
 }
+

@@ -35,6 +35,11 @@ public class ReadArticleService {
 			throw new RuntimeException (e);
 		}
 	}
+	/*
+	 * public CommentData getCommentData(Integer articleNumber, Writer writer) {
+	 * 
+	 * }
+	 */
 	
 	
 }
