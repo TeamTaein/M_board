@@ -42,6 +42,11 @@ table.type03 td {
     border-right: 1px solid #ccc;
     border-bottom: 1px solid #ccc;
 }
+table.type03 td a {
+   font-family: 'Nanum Pen Script', cursive;
+   font-size: 24px;
+   
+}
 
 table.type09 {
     border-collapse: collapse;
@@ -163,10 +168,10 @@ table.type09 td a {
 
 	<td colspan="2">
 		<c:set var="pageNo" value="${empty param.pageNo ? '1' : param.pageNo}"></c:set>
-		<a href="list.do?pageNo=1"><i class="fa fa-list"></i></a>
+		<a href="list.do?pageNo=1" class="text-info"><i class="fa fa-list"></i>List</a>
 		<c:if test="${authUser.id == articleData.article.writer.id}">
-			<a href="modify.do?no=${articleData.article.number }">[게시글 수정]</a>
-			<a href="delete.do?no=${articleData.article.number }">[게시글 삭제]</a>		
+			<a href="modify.do?no=${articleData.article.number }" class="text-dark"><i class="fa fa-pen"></i>Modify</a>
+			<a href="delete.do?no=${articleData.article.number }" class="text-danger"><i class="fa fa-trash"></i>Delete</a>		
 		</c:if>	
 	</td>	
 

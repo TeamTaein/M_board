@@ -140,8 +140,8 @@ Welcome ${authUser.id }!!
 <div class="container">
 
 <div class="chart">
-		<a href="${ctxPath }/index.jsp"><i class="fa fa-home"></i></a>
-		<a href="write.do" ><i class="fa fa-comment"></i></a>
+		<a href="${ctxPath }/index.jsp" class="text-info"><i class="fa fa-home"></i>Home</a>
+		<a href="write.do" ><i class="fa fa-comments"></i>Write</a>
 		<u:isLogin><a href="${ctxPath }/logout.do" class="text-danger"><i class="fa fa-rocket"></i>Logout</a></u:isLogin>
 	</div>
 <!-- <div class="title"> 맛집 게시판</div> -->
