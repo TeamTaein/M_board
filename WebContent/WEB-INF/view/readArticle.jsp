@@ -21,9 +21,9 @@ table.type03 {
     line-height: 1.5;
     border-top: 1px solid #ccc;
     border-left: 3px solid #369;
-  	margin : 50px 10px;
+  	margin-top: 30px;
   	font-family: 'Nanum Pen Script', cursive;
-  	font-size: 20px;
+  	font-size: 30px;
 }
 table.type03 th {
     width: 147px;
@@ -36,16 +36,100 @@ table.type03 th {
 
 }
 table.type03 td {
-    width: 349px;
+    width: 800px;
     padding: 10px;
     vertical-align: top;
     border-right: 1px solid #ccc;
     border-bottom: 1px solid #ccc;
 }
+
+table.type09 {
+    border-collapse: collapse;
+    text-align: left;
+    line-height: 1.5;
+    font-family: 'Nanum Pen Script', cursive;
+    font-size: 20px;
+    margin-bottom: 30px;
+
+} 
+table.type09 th {
+    padding: 10px;
+    font-weight: bold;
+    vertical-align: top;
+    color: #369;
+    border-bottom: 3px solid #036;
+	font-family: 'Nanum Pen Script', cursive;
+	font-siz: 30px;    
+}
+table.type09 td {
+    width: 500px;
+    padding: 10px;
+    font-weight: bold;
+    vertical-align: top;
+    border-bottom: 1px solid ;    
+	font-family: 'Nanum Pen Script', cursive;
+	font-siz: 25px;
+}
+
+table.type09 td a {
+	font-family: 'Nanum Pen Script', cursive;
+	font-siz: 25px;
+	color: red;
+}
+
+
+.comment_form {
+    background-color: #ffffff;
+	padding-top: em;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    font-family: 'Nanum Pen Script', cursive;	
+	display: block;
+	margin: 0 auto;	 
+	margin-top: 50px;
+	margin-bottom: 30px;
+	font-size: 30px;  
+}
+
+.submit_btn {
+    background-color: #475d9f;
+    border: 1px solid #323f6b;
+    color: #ffffff;
+    border-radius: 4px;
+    padding: 2px 8px;
+    font-size: 35px;
+/*     display: block;
+    margin: 0 auto; */
+}
+
+.input_field {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 4px;
+    margin: 3px 0;
+    font-size: 30px;
+    width: 80%;
+}
+
+.review {
+	margin-top: 20px;
+	font-family: 'Nanum Pen Script', cursive;
+	font-size: 50px;	
+	text-align: center;	
+}
+
+.review a{
+	float: right;
+}
+
 </style>
 <title>Insert title here</title>
 </head>
 <body>
+<div class="review container">
+<b>Review Lookup</b><a href="list.do" class="text-danger"><i class="fa fa-times"></i></a>
+</div>
 <div class="container">
 <table class="type03">
 <tr>
@@ -89,46 +173,10 @@ table.type03 td {
 </tr>
 </table>
 </div>
-<br />
 
-<div class="container">
-<table>
-	<tr>
-		<th>작성자</th>
-		<th>내용</th>
-		<th>작성시간</th>
-	</tr>
-<c:if test="${commentPage.hasNoComments() }">
-	<tr>
-		<td colspan="4">댓글이 없습니다.</td>
-	</tr>
-</c:if>
-	
-<c:forEach var="comment" items="${commentPage.content }">
-	
-	<tr>
-		<td>${comment.commentWriter.name }</td>
-		<td>${comment.cmtContent }</td>
-		<td>${comment.cmtRegdate }</td>
-		<c:if test="${authUser.name == comment.commentWriter.name}">
-			<td><a href="commentdelete.do?cmtNum=${comment.cmtNum }">[댓글삭제]</a></td>
-		</c:if>	
-	</tr>
-	
-</c:forEach>
-	
-</table>
+<div class="comment_form container">
 
-<br />
-
-
-
-<form action="commentwrite.do" method="post">
-댓글: <br />
-<textarea name="commentContent" rows="5" cols="30">${param.commentContent}</textarea>
-<input type="submit" value="댓글 등록"/>
-</form>
-<table>
+<table class="type09">
 <tr>
 <th>작성자</th>
 <th>내용</th>
@@ -152,6 +200,13 @@ table.type03 td {
 
 </c:forEach>
 </table>
+
+<form action="commentwrite.do" method="post">
+댓글: 
+<input class="input_field" type="text" name="commentContent" >${param.commentContent}
+<%-- <textarea name="commentContent" rows="5" cols="30">${param.commentContent}</textarea> --%>
+<input class="submit_btn" type="submit" value="댓글 등록"/>
+</form>
 
 
 <nav aria-label="Page navigation example">

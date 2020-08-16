@@ -31,7 +31,7 @@ public class DeleteArticleHandler implements CommandHandler {
 			return FORM_VIEW;
 		}try {
 			deleteService.delete(deleteReq);
-			return "/WEB-INF/view/deleteSuccess.jsp";
+			return "list.do";
 		}catch(Exception e){
 			e.printStackTrace();
 			return null;

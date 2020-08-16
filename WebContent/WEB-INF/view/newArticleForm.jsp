@@ -27,7 +27,8 @@
     font-family: 'Nanum Pen Script', cursive;	
 	display: block;
 	margin: 0 auto;	 
-	margin-top: 50px;   
+	margin-top: 50px;
+	font-size: 30px;   
 }
 .form_box a {
 	float: right;
@@ -37,7 +38,7 @@
     border-radius: 4px;
     padding: 4px;
     margin: 3px 0;
-    font-size: 14px;
+    font-size: 30px;
     width: 100%;
 }
 .textarea_field {
@@ -45,7 +46,7 @@
     border-radius: 4px;
     padding: 4px;
     margin: 3px 0;
-    font-size: 14px;
+    font-size: 30px;
     width: 100%;
     height: 160px;
 }
@@ -56,7 +57,7 @@
     color: #ffffff;
     border-radius: 4px;
     padding: 2px 8px;
-    font-size: 30px;
+    font-size: 35px;
 }
 
 .local_field{
@@ -65,14 +66,14 @@
 	color: black;
     border-radius: 4px;
     padding: 2px 8px;
-    font-size: 20px;	
+    font-size: 25px;	
     
 }
 .file_field label {
  	display: inline-block;
  	padding: .5em .75em;
  	color: black; 
- 	font-size: 20px; 
+ 	font-size: 25px; 
  	line-height: normal; 
  	vertical-align: middle; 
  	background-color: #fdfdfd; 
@@ -93,7 +94,7 @@
  	border: 0;
  }
 form b{
-	font-size: 25px;
+	font-size: 30px;
 }
 
 </style>
@@ -135,6 +136,7 @@ form b{
 </div>
 
 <input class="submit_btn" type="submit" value="새 글 등록" />
+<input class="submit_btn" type="reset" value="다시쓰기" />
 </form>
 </div>
 </body>
