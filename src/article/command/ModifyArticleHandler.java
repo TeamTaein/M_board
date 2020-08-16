@@ -81,7 +81,7 @@ public class ModifyArticleHandler implements CommandHandler {
 				/* 403 에러 여기 같음 */
 			}try {
 				modifyService.modify(modReq);
-				return "/WEB-INF/view/modifySuccess.jsp";
+				return "list.do";
 			}catch(ArticleNotFoundException e) {
 				res.sendError(HttpServletResponse.SC_NOT_FOUND);
 				return null;

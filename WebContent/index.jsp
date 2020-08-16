@@ -440,7 +440,7 @@ margin-left: 30px;
 <div class="welcome">
 
 Welcome ${authUser.id }!!
-<a href="changePwd.do">[암호변경]</a>
+<a href="changePwd.do" class="text-info">[암호변경]</a>
 
 </div>
 
@@ -466,7 +466,9 @@ Welcome ${authUser.id }!!
     <link rel="stylesheet" href="css/nice-select.css" type="text/css">
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
+<style>
 
+</style>
 </head>
 
 <body>
@@ -806,7 +808,7 @@ Welcome ${authUser.id }!!
                 <div class="col-lg-12">
                     <div class="copyright-text">
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                     </div>
                 </div>

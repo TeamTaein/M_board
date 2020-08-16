@@ -309,7 +309,7 @@ ol {
 
 .header-section {
 	padding-top: 65px;
-	padding-bottom: 30px;
+	padding-bottom: 30px;	
 }
 
 .header-section .logo {
@@ -323,7 +323,6 @@ ol {
 
 .header-section .nav-menu {
 	position: relative;	
-	
 }
 
 .header-section .nav-menu .main-menu {
