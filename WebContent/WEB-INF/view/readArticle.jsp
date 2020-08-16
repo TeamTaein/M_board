@@ -13,6 +13,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
 <style>
 table.type03 {
     border-collapse: collapse;
@@ -20,7 +21,9 @@ table.type03 {
     line-height: 1.5;
     border-top: 1px solid #ccc;
     border-left: 3px solid #369;
-  margin : 20px 10px;
+  	margin : 50px 10px;
+  	font-family: 'Nanum Pen Script', cursive;
+  	font-size: 20px;
 }
 table.type03 th {
     width: 147px;
@@ -76,7 +79,7 @@ table.type03 td {
 
 	<td colspan="2">
 		<c:set var="pageNo" value="${empty param.pageNo ? '1' : param.pageNo}"></c:set>
-		<a href="list.do?pageNo=1">[목록]</a>
+		<a href="list.do?pageNo=1"><i class="fa fa-list"></i></a>
 		<c:if test="${authUser.id == articleData.article.writer.id}">
 			<a href="modify.do?no=${articleData.article.number }">[게시글 수정]</a>
 			<a href="delete.do?no=${articleData.article.number }">[게시글 삭제]</a>		

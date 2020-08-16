@@ -14,3 +14,161 @@ a {
 	font-family: 'Nanum Pen Script', cursive;
 	font-size: 30px;
 }
+
+
+/*---------------------
+  Header
+-----------------------*/
+
+.header-section {
+	padding-top: 65px;
+	padding-bottom: 30px;
+}
+
+.header-section .logo {
+	text-align: center;
+	margin-bottom: 92px;
+}
+
+.header-section .logo a {
+	display: inline-block;
+}
+
+.header-section .nav-menu {
+	position: relative;	
+	
+}
+
+.header-section .nav-menu .main-menu {
+	text-align: center;
+	
+}
+
+.header-section .nav-menu .main-menu ul li {
+	display: inline-block;
+	margin-right: 60px;
+	position: relative;
+}
+
+.header-section .nav-menu .main-menu ul li:last-child {
+	margin-right: 0;
+}
+
+.header-section .nav-menu .main-menu ul li:last-child:after {
+	display: none;
+}
+
+.header-section .nav-menu .main-menu ul li:hover a {
+	color: #FC0254;
+}
+
+.header-section .nav-menu .main-menu ul li:hover a:after {
+	opacity: 1;
+}
+
+.header-section .nav-menu .main-menu ul li.active a {
+	color: #FC0254;
+}
+
+.header-section .nav-menu .main-menu ul li.active a:after {
+	opacity: 1;
+}
+
+.header-section .nav-menu .main-menu ul li:after {
+	position: absolute;
+	right: -35px;
+	top: 4px;
+	height: 21px;
+	width: 2px;
+	background: #BBBCC0;
+	content: "";
+}
+
+.header-section .nav-menu .main-menu ul li a {
+	color: #353535;
+	font-size: 20px;
+	font-weight: 700;
+	padding: 5px;
+	position: relative;
+	-webkit-transition: all 0.2s;
+	transition: all 0.2s;
+}
+
+.header-section .nav-menu .main-menu ul li a:after {
+	position: absolute;
+	left: 0;
+	bottom: -3px;
+	width: 100%;
+	height: 2px;
+	background: #FC0254;
+	content: "";
+	opacity: 0;
+	-webkit-transition: all 0.2s;
+	transition: all 0.2s;
+}
+
+.header-section .nav-menu .main-menu ul li:hover .sub-menu {
+	visibility: visible;
+	opacity: 1;
+	margin-top: 16px;
+}
+
+.header-section .nav-menu .main-menu ul .sub-menu {
+	position: absolute;
+	list-style: none;
+	width: 220px;
+	left: 0;
+	top: 100%;
+	padding: 20px 0 10px;
+	visibility: hidden;
+	opacity: 0;
+	margin-top: 50px;
+	text-align: left;
+	background: #fff;
+	z-index: 99;
+	-webkit-transition: all 0.4s;
+	transition: all 0.4s;
+	-webkit-box-shadow: 2px 7px 20px rgba(0, 0, 0, 0.05);
+	box-shadow: 2px 7px 20px rgba(0, 0, 0, 0.05);
+}
+
+.header-section .nav-menu .main-menu ul .sub-menu li {
+	display: block;
+	margin-right: 0;
+}
+
+.header-section .nav-menu .main-menu ul .sub-menu li:after {
+	display: none;
+}
+
+.header-section .nav-menu .main-menu ul .sub-menu li a {
+	display: block;
+	color: #000;
+	margin-left: 0;
+	padding: 5px 20px;
+	font-size: 16px;
+}
+
+.header-section .nav-menu .main-menu ul .sub-menu li a:after {
+	display: none;
+}
+
+.header-section .nav-menu .main-menu ul .sub-menu li a:hover {
+	color: #FC0254;
+}
+
+.header-section .nav-menu .nav-right {
+	position: absolute;
+	right: 150px;
+	top: -2px;
+	font-size: 21px;
+	color: #939394;
+}
+
+.header-section .nav-menu .nav-right i {
+	cursor: pointer;
+}
+
+.slicknav_menu {
+	display: none;
+}

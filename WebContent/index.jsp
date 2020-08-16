@@ -423,7 +423,13 @@ margin-left: 30px;
 .welcome{
 	font-family: 'Nanum Pen Script', cursive;
 	font-size: 20px;
+	float: right;
 }
+
+.welcome a {
+	font-size: 20px;
+}
+
 </style>
 <title>회원제 게시판 예제</title>
 </head>
@@ -434,16 +440,11 @@ margin-left: 30px;
 <div class="welcome">
 
 Welcome ${authUser.id }!!
+<a href="changePwd.do">[암호변경]</a>
 
 </div>
 
-	
-
-	<a href="${ctxPath }/article/write.do">[글 작성]</a>
-	<a href="changePwd.do">[암호변경하기]</a>
-
-
-	</div>
+</div>
 	<!DOCTYPE html>
 <html lang="zxx">
 
@@ -453,7 +454,7 @@ Welcome ${authUser.id }!!
     <meta name="keywords" content="Yoga, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Yummy | Template</title>
+    <title>Yummy</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700&display=swap" rel="stylesheet">
@@ -478,7 +479,7 @@ Welcome ${authUser.id }!!
     <header class="header-section">
         <div class="container">
             <div class="logo">
-                <a href="index.jsp"><img src="img/logo.png" alt=""></a>
+                <a href="index.jsp"><img src="img/yummy.png" alt=""></a>
             </div>
             <div class="nav-menu">
                 <nav class="main-menu mobile-menu">

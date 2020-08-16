@@ -18,9 +18,9 @@
 <link rel="stylesheet" href="css/korea-font.css" type="text/css">
 
 <style type="text/css">
- a:link { color: black; text-decoration: none;}
- a:visited { color: gray; text-decoration: none;}
- a:hover { color: blue; text-decoration: none;}
+ table a:link { color: black; text-decoration: none;}
+ table a:visited { color: gray; text-decoration: none;}
+ table a:hover { color: blue; text-decoration: none;}
 </style>
 
 <style>
@@ -65,6 +65,11 @@ table.type09 td {
 	text-align: center;
 	color: olive;
 }
+.chart {
+	font-family: 'Nanum Pen Script', cursive;	
+	font-size: 30px;
+	float: right;
+}
 
 .block-27 ul {
   padding: 0;
@@ -88,35 +93,74 @@ table.type09 td {
       border-radius: 50%; 
 
       }
-
+#search_btn {
+	border: none;
+	background-color:rgba(0,0,0,0);
+}
+#search_select{
+	border: none;
+	background-color:rgba(0,0,0,0);
+	border-radius: 5px;
+}
+#search_text{
+	border: none;
+}
+#search_group{
+	border: none;
+	border-radius: 10px;
+	font-family: 'Nanum Pen Script', cursive;
+	font-size: 30px;	
+} 
+img {
+	display: block;
+	margin: 0 auto;	
+}
+.welcome{
+	font-family: 'Nanum Pen Script', cursive;
+	font-size: 20px;
+	float: right;
+}
 </style>
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
 <title>게시글목록</title>
 </head>
 <body>
+<div class="welcome">
 
+Welcome ${authUser.id }!!
+</div>
+<a href="${ctxPath }/index.jsp"><img src="${ctxPath }/img/yummy.png" alt="" /></a>
+
+ 
 <div class="container">
-<div class="title"> 맛집 게시판</div>
 
-<table class="type09">
+<div class="chart">
+		<a href="${ctxPath }/index.jsp"><i class="fa fa-home"></i></a>
+		<a href="write.do" ><i class="fa fa-comment"></i></a>
+		<u:isLogin><a href="${ctxPath }/logout.do" class="text-danger"><i class="fa fa-rocket"></i>Logout</a></u:isLogin>
+	</div>
+<!-- <div class="title"> 맛집 게시판</div> -->
 
-<thead>		
-	<tr>
-		<td colspan="5"><a href="write.do">[게시글쓰기]</a>
-		<u:isLogin><a href="${ctxPath }/logout.do" class="text-danger">[로그아웃하기]</a></u:isLogin>
-				<!-- 검색 기능 -->
-<form action="search.do" method="get">
-	<select name="search_key" id="">
+<div class="h-100 d-flex align-items-center" id="search_group">
+<form action="search.do" method="get" class="serach-model-form">
+	<select name="search_key" id="search_select">
 		<option value="title">제목</option>
 		<option value="writer_id">작성자</option>
 		<option value="local_name">지역</option>
 	</select>
-	<input type="text" name="search_rs" />
-	<input type="submit" value="검색" />
+	<input type="text" name="search_rs" placeholder="Search here....." id="search_text"/>
+	<button type="submit" id="search_btn"><i class="fa fa-search"></i></button>
 </form>
-		</td>	
+</div>
 
-	</tr>	
- 
+
+<table class="type09">
+<thead> 
 	<tr>
 		<th>번호</th>
 		<th>제목</th>
