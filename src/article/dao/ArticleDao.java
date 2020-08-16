@@ -91,36 +91,12 @@ public class ArticleDao {
 	public int selectSearchCount(Connection conn, String searchKey, String searchRs) throws SQLException{	
 		ResultSet rs = null;
 		PreparedStatement pstmt = null;
-		
 		try {
-//			if(searchKey == "title") {
-//				String sql = "select count(*) from article where title like ?";
-//				pstmt = conn.prepareStatement(sql);
-//				pstmt.setString(1, "%"+searchRs+"%");
-//
-//			} else if(searchKey == "writer_id") {
-//				String sql = "select count(*) from article where wrtier_id like ?";
-//				pstmt = conn.prepareStatement(sql);
-//				pstmt.setString(1, "%"+searchRs+"%");
-//
-//			} else if(searchKey == "local_name") {
-//				String sql = "select count(*) from article where local_name like ?";
-//				pstmt = conn.prepareStatement(sql);
-//				pstmt.setString(1, "%"+searchRs+"%");
-//
-//			}
 			String sql ="select count(*) from article where "+searchKey+" like ?";
 			pstmt = conn.prepareStatement(sql);			
-			System.out.println("selectSearchCount sql :" + sql );
-//			pstmt.setString(1, searchKey);
-//			System.out.println("searchKey :  "+ searchKey);
 			pstmt.setString(1, "%"+searchRs+"%");
-			System.out.println("searchRs :  "+searchRs);
-			
 			rs = pstmt.executeQuery();		
-			
 			if(rs.next()) {
-				System.out.println("rs.getInt :  "+rs.getInt(1));
 				return rs.getInt(1);
 			}
 			return 0;
@@ -156,13 +132,9 @@ public class ArticleDao {
 	public List<Article> selectSearch(Connection conn, String searchKey, String searchRs, int startRow, int size) throws SQLException{
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		
 		try {
-		
-			
 			String sql = "select * from article "
 					+ "where "+searchKey+" like ? order by article_no desc limit ?,?"; // 게시글 번호 역순으로 정렬
-			
 			pstmt = conn.prepareStatement(sql); 
 			pstmt.setString(1,"%"+searchRs+"%");
 			pstmt.setInt(2, startRow);			

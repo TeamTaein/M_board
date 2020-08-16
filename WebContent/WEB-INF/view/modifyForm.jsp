@@ -88,7 +88,7 @@ form b{
 	<br />
 
 	<b> 지역 : </b> <br />
-	<select class="local_field" name="local_name">
+	<select class="local_field" name="localName">
 			<option value="일산">일산</option>
 			<option value="신촌">신촌</option>
 			<option value="이대">이대</option>

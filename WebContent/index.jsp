@@ -470,7 +470,7 @@ Welcome ${authUser.id }!!
 </head>
 
 <body>
-    <!-- Page Preloder -->
+   <!-- Page Preloder -->
     <div id="preloder">
         <div class="loader"></div>
     </div>
@@ -479,7 +479,7 @@ Welcome ${authUser.id }!!
     <header class="header-section">
         <div class="container">
             <div class="logo">
-                <a href="index.jsp"><img src="img/yummy.png" alt=""></a>
+                <a href="index.jsp"><img src="img/logo.png" alt=""></a>
             </div>
             <div class="nav-menu">
                 <nav class="main-menu mobile-menu">
@@ -512,22 +512,22 @@ Welcome ${authUser.id }!!
             <div class="row">
                 <div class="col-lg-6 order-lg-2">
                     <div class="pt-recipe-item large-item">
-                        <div class="pt-recipe-img set-bg" data-setbg="img/recipe-3.jpg">
+                        <div class="pt-recipe-img set-bg" data-setbg="img/recipe-1.jpg">
                             <i class="fa fa-plus"></i>
                         </div>
                         <div class="pt-recipe-text">
                             <span>March 10, 2019</span>
-                            <h3>Cannellini Aglio e Olio with Salmon</h3>
+                            <h3>신촌 라구식당  - 라구 파스타 & 라쟈냐</h3>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 order-lg-1">
                     <div class="pt-recipe-item">
-                        <div class="pt-recipe-img set-bg" data-setbg="img/recipe-1.jpg">
+                        <div class="pt-recipe-img set-bg" data-setbg="img/recipe-3.jpg">
                             <i class="fa fa-plus"></i>
                         </div>
                         <div class="pt-recipe-text">
-                            <h4>Raw Vegan Carrot Cake Bites with Avocado</h4>
+                            <h4>신촌 양조주택  - 로제 누릉지 통닭</h4>
                         </div>
                     </div>
                     <div class="pt-recipe-item">
@@ -535,7 +535,7 @@ Welcome ${authUser.id }!!
                             <i class="fa fa-plus"></i>
                         </div>
                         <div class="pt-recipe-text">
-                            <h4>One Pot Weeknight Lasagna Soup Recipe</h4>
+                            <h4>이대 까이식당 - 동남아식 치킨 라이스</h4>
                         </div>
                     </div>
                 </div>
@@ -545,7 +545,7 @@ Welcome ${authUser.id }!!
                             <i class="fa fa-plus"></i>
                         </div>
                         <div class="pt-recipe-text">
-                            <h4>Beef Burger with French Fries and Salad</h4>
+                            <h4>신촌 네이버후드 - 마르게리따 피자</h4>
                         </div>
                     </div>
                     <div class="pt-recipe-item">
@@ -553,7 +553,7 @@ Welcome ${authUser.id }!!
                             <i class="fa fa-plus"></i>
                         </div>
                         <div class="pt-recipe-text">
-                            <h4>Raspberry Pancakes with Honey and Butter</h4>
+                            <h4>일산 샘밭 막국수 - 막국수</h4>
                         </div>
                     </div>
                 </div>
@@ -565,7 +565,7 @@ Welcome ${authUser.id }!!
     <!-- Top Recipe Section Begin -->
     <section class="top-recipe spad">
         <div class="section-title">
-            <h5>Top Recipes this Week</h5>
+            <h5>Top Restaurant this Week</h5>
         </div>
         <div class="container po-relative">
             <div class="plus-icon">
@@ -578,13 +578,11 @@ Welcome ${authUser.id }!!
                             <i class="fa fa-plus"></i>
                         </div>
                         <div class="top-recipe-text">
-                            <div class="cat-name">Desert</div>
+                            <div class="cat-name">Italian</div>
                             <a href="#">
-                                <h4>One Pot Weeknight Lasagna Soup Recipe</h4>
+                                <h4>라구 파스타 & 라자냐</h4>
                             </a>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing
-                                elit, sed do eiusmod tempor incididunt ut labore.</p>
+                            <p>와인과 함께 끓여 풍미를 살린 비프 라구 소스로 만든 마있는 파스타와 라자냐</p>
                         </div>
                     </div>
                 </div>
@@ -598,12 +596,11 @@ Welcome ${authUser.id }!!
                             </div>
                             <div class="col-sm-8">
                                 <div class="top-recipe-text">
-                                    <div class="cat-name">Vegan</div>
+                                    <div class="cat-name">Asian cuisine</div>
                                     <a href="#">
-                                        <h4>One Pot Weeknight Lasagna Soup Recipe</h4>
+                                        <h4>동남아식 치킨라이스</h4>
                                     </a>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                        incididunt ut labore et dolore magna aliqua.</p>
+                                    <p>동남아의 소울푸드 부드러운 닭다리살과 닭육수로 만든 밥을 특제 소스와 함께 즐겨보자</p>
                                 </div>
                             </div>
                         </div>
@@ -617,12 +614,11 @@ Welcome ${authUser.id }!!
                             </div>
                             <div class="col-sm-8">
                                 <div class="top-recipe-text">
-                                    <div class="cat-name">Meat lover</div>
+                                    <div class="cat-name">Fusion</div>
                                     <a href="#">
-                                        <h4>Veggie soup with Mushrooms</h4>
+                                        <h4>로제 누릉지 통닭</h4>
                                     </a>
-                                    <p>Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                                        magna aliqua. Lorem ipsum dolor sit amet, consectetur.</p>
+                                    <p>서강대 앞 경의선 숲길을 따라가면 만나볼 수 있는 분위기 좋은 이탈리안 퓨전 디쉬 레스토랑</p>
                                 </div>
                             </div>
                         </div>
@@ -636,12 +632,11 @@ Welcome ${authUser.id }!!
                             </div>
                             <div class="col-sm-8">
                                 <div class="top-recipe-text">
-                                    <div class="cat-name">Desert</div>
+                                    <div class="cat-name">Italian</div>
                                     <a href="#">
-                                        <h4>Caramel Ice Cream with Berries</h4>
+                                        <h4>마르게리따 피자</h4>
                                     </a>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                        incididunt ut labore et dolore magna aliqua.</p>
+                                    <p>이탈리안식 마르게리따와 미국식 도우가 합쳐진 마르게리따 피자 신선한 모짜렐라와 토마토, 바질의 본연의 맛을 잘 표현했다.</p>
                                 </div>
                             </div>
                         </div>
@@ -655,12 +650,11 @@ Welcome ${authUser.id }!!
                             </div>
                             <div class="col-sm-8">
                                 <div class="top-recipe-text">
-                                    <div class="cat-name">Desert</div>
+                                    <div class="cat-name">KOREAN</div>
                                     <a href="#">
-                                        <h4>Freash Octopuse with lime juice</h4>
+                                        <h4>샘밭 막국수</h4>
                                     </a>
-                                    <p>Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                                        magna aliqua. Lorem ipsum dolor sit amet, consectetur.</p>
+                                    <p>3대가 46년째 운영하고 있는 일산 호수공원 가로수길 대표 맛집 막국수의 감칠맛이 남다르다.</p>
                                 </div>
                             </div>
                         </div>
@@ -678,10 +672,10 @@ Welcome ${authUser.id }!!
                 <div class="col-lg-12 text-center">
                     <div class="filter-item">
                         <ul>
-                            <li class="active" data-filter="*">Vegetarian</li>
-                            <li data-filter=".mostpopular">Most popular</li>
-                            <li data-filter=".meatlover">Meat Lover</li>
-                            <li data-filter=".glutenfree">Gluten Free</li>
+                            <li class="active" data-filter="*">전체</li>
+                            <li data-filter=".mostpopular">일산</li>
+                            <li data-filter=".meatlover">신촌</li>
+                            <li data-filter=".glutenfree">이대</li>
                         </ul>
                     </div>
                 </div>
@@ -851,7 +845,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 <div class="cont_ba_opcitiy">
         
         <h2>LOGIN</h2>  
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> 
+  <p>로그인 하여 맛집에 대한 <br /> 솔직한 리뷰를 감상하세요</p> 
   <button class="btn_login" onclick="cambiar_login()">LOGIN</button>
   </div>
   </div>
@@ -860,8 +854,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
   <h2>SIGN UP</h2>
 
   
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-
+  <p>YUMMY 커뮤니티의 <br /> 회원이 되려면 </p>
   <button class="btn_sign_up" onclick="cambiar_sign_up()">SIGN UP</button>
 </div>
   </div>
@@ -870,13 +863,13 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     
     <div class="cont_back_info">
        <div class="cont_img_back_grey">
-       <img src="https://images.unsplash.com/42/U7Fc1sy5SCUDIu4tlJY3_NY_by_PhilippHenzler_philmotion.de.jpg?ixlib=rb-0.3.5&q=50&fm=jpg&crop=entropy&s=7686972873678f32efaf2cd79671673d" alt="" />
+       <img src="login-image.jpg" alt="" />
        </div>
        
     </div>
 <div class="cont_forms">
     <div class="cont_img_back_">
-       <img src="https://images.unsplash.com/42/U7Fc1sy5SCUDIu4tlJY3_NY_by_PhilippHenzler_philmotion.de.jpg?ixlib=rb-0.3.5&q=50&fm=jpg&crop=entropy&s=7686972873678f32efaf2cd79671673d" alt="" />
+       <img src="login-image.jpg" alt="" />
        </div>
        
   <form action="login.do" method="post">
@@ -894,7 +887,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
    <div class="cont_form_sign_up">
 <a href="#" onclick="ocultar_login_sign_up()"><i class="material-icons">&#xE5C4;</i></a>
     <form action="join.do" method="post">
-    <br /><br />
+    <br /><br /><br />
      <h2>SIGN UP</h2><br />
 <input type="email" placeholder="Email" name="email" value="${param.email}" />
 <c:if test="${!empty errors.email}"><script type="text/javascript">alert('이메일을 입력해주세요');</script></c:if>
@@ -908,7 +901,10 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 <c:if test="${!empty errors.id}"><script type="text/javascript">alert('닉네임을 입력해주세요');</script></c:if>
 <label ><input type="radio" name="gender" value="male" checked />남자</label>
 <label ><input type="radio" name="gender" value="femail" />여자</label><br />
-<button class="btn_sign_up" onclick="cambiar_sign_up()">SIGN UP</button>
+<button class="btn_sign_up" onclick="cambiar_sign_up()">SIGN UP </button>
+
+
+
 
 </form>
   </div>
