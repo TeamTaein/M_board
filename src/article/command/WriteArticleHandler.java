@@ -67,7 +67,7 @@ public class WriteArticleHandler implements CommandHandler {
 		// 새 글의 ID를 request의 newArticleId 속성에 저장, 처리결과를 보여줄 jsp는 이 속성값 사용해서 링크 생성
 		req.setAttribute("newArticleNo", newArticleNo);
 
-		return "/WEB-INF/view/newArticleSuccess.jsp"; 
+		return "list.do"; 
 
 	}
 

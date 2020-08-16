@@ -1,6 +1,8 @@
 package member.command;
 
-import java.util.HashMap; 
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -59,12 +61,20 @@ public class JoinHandler implements CommandHandler {
 		try {
 			// 회원가입에 성공한 경우 joinSuccess.jsp 뷰 리턴
 			joinService.join(joinReq);
-			return "/WEB-INF/view/joinSuccess.jsp";
+			res.setContentType("text/html; charset=UTF-8");
+			PrintWriter out = res.getWriter();
+			out.println("<script>alert('회원가입에 성공하셨습니다')</script>");
+			out.flush();
+			
+			return FORM_VIEW;
 		} catch(DuplicateIdException e) {
 			// 동일한 아이디로 가입한 회원이 존재
 			// => errors에 "duplicateId" 키 추가, joinForm.jsp 뷰 리턴
 			errors.put("duplicateId", Boolean.TRUE);
 		
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		return FORM_VIEW;
 	}
