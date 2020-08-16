@@ -431,7 +431,7 @@ margin-left: 30px;
 }
 
 </style>
-<title>회원제 게시판 예제</title>
+<title>Welcome to Yummy!</title>
 </head>
 <body>
 
