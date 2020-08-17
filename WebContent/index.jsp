@@ -71,12 +71,24 @@ document.querySelector('.cont_form_login').style.display = "none";
 /* ------------------------------------ Click on login and Sign Up to  changue and view the effect
 ---------------------------------------
 */
+.menu_local{
+	font-family: 'Nanum Pen Script', cursive;
+	font-size: 30px;
+}
+.top-recipe p {
+	font-family: 'Nanum Pen Script', cursive;
+	font-size: 25px;
+}
+.top-recipe h3 {
+	color: maroon;
+}
 
+ 
 * {
   margin: 0px auto;
   padding: 0px;
   text-align: center;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Nanum Pen Script', cursive;
 }
 
 .cotn_principal {
@@ -408,16 +420,16 @@ text-align: left;
 }
 
 .cont_form_login > h2 {
-margin-top: 110px; 
-font-weight: 400;
-  color: #757575;
+	margin-top: 110px; 
+	font-weight: 400;
+    color: #757575;
 }
 .cont_form_login > a,.cont_form_sign_up > a  {
-  color: #757575;
+    color: #757575;
     position: relative;
     float: left;
     margin: 10px;
-margin-left: 30px;
+	margin-left: 30px;
 }
 
 .welcome{
@@ -429,6 +441,7 @@ margin-left: 30px;
 .welcome a {
 	font-size: 20px;
 }
+
 
 </style>
 <title>Welcome to Yummy!</title>
@@ -457,7 +470,7 @@ Welcome ${authUser.id }!!
     <title>Yummy</title>
 
     <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700&display=swap" rel="stylesheet">
+
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
 
     <!-- Css Styles -->
@@ -466,9 +479,8 @@ Welcome ${authUser.id }!!
     <link rel="stylesheet" href="css/nice-select.css" type="text/css">
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
-<style>
+    <link rel="stylesheet" href="css/korea-font.css" type="text/css">
 
-</style>
 </head>
 
 <body>
@@ -481,7 +493,7 @@ Welcome ${authUser.id }!!
     <header class="header-section">
         <div class="container">
             <div class="logo">
-                <a href="index.jsp"><img src="img/logo.png" alt=""></a>
+                <a href="index.jsp"><img src="img/yummy.png" alt=""></a>
             </div>
             <div class="nav-menu">
                 <nav class="main-menu mobile-menu">
@@ -494,16 +506,13 @@ Welcome ${authUser.id }!!
                                 <li><a href="logout.do">Logout</a></li>
                             </ul> 
                         </li>
-                        <li><a href="recipe.html">Notice</a></li>
+                        <li><a href="notice.jsp">Notice</a></li>
                         <li><a href="${ctxPath }/article/list.do">Review</a></li>
                         <li><a href="logout.do" class="text-danger">Logout</a></li>
                     </ul>
-                </nav>
-                <div class="nav-right search-switch">
-                    <i class="fa fa-search"></i>
-                </div>
+                </nav>                
             </div>
-            <div id="mobile-menu-wrap"></div>
+            
         </div>
     </header>
     <!-- Header End -->
@@ -581,9 +590,9 @@ Welcome ${authUser.id }!!
                         </div>
                         <div class="top-recipe-text">
                             <div class="cat-name">Italian</div>
-                            <a href="#">
-                                <h4>라구 파스타 & 라자냐</h4>
-                            </a>
+                            
+                                <h3><b>라구 파스타 & 라자냐</b></h3>
+                            
                             <p>와인과 함께 끓여 풍미를 살린 비프 라구 소스로 만든 마있는 파스타와 라자냐</p>
                         </div>
                     </div>
@@ -599,9 +608,9 @@ Welcome ${authUser.id }!!
                             <div class="col-sm-8">
                                 <div class="top-recipe-text">
                                     <div class="cat-name">Asian cuisine</div>
-                                    <a href="#">
-                                        <h4>동남아식 치킨라이스</h4>
-                                    </a>
+                                    
+                                        <h3><b>동남아식 치킨라이스</b></h3>
+                                    
                                     <p>동남아의 소울푸드 부드러운 닭다리살과 닭육수로 만든 밥을 특제 소스와 함께 즐겨보자</p>
                                 </div>
                             </div>
@@ -617,9 +626,9 @@ Welcome ${authUser.id }!!
                             <div class="col-sm-8">
                                 <div class="top-recipe-text">
                                     <div class="cat-name">Fusion</div>
-                                    <a href="#">
-                                        <h4>로제 누릉지 통닭</h4>
-                                    </a>
+                                    
+                                        <h3><b>로제 누릉지 통닭</b></h3>
+                                    
                                     <p>서강대 앞 경의선 숲길을 따라가면 만나볼 수 있는 분위기 좋은 이탈리안 퓨전 디쉬 레스토랑</p>
                                 </div>
                             </div>
@@ -635,9 +644,9 @@ Welcome ${authUser.id }!!
                             <div class="col-sm-8">
                                 <div class="top-recipe-text">
                                     <div class="cat-name">Italian</div>
-                                    <a href="#">
-                                        <h4>마르게리따 피자</h4>
-                                    </a>
+                                    
+                                        <h3><b>마르게리따 피자</b></h3>
+                                    
                                     <p>이탈리안식 마르게리따와 미국식 도우가 합쳐진 마르게리따 피자 신선한 모짜렐라와 토마토, 바질의 본연의 맛을 잘 표현했다.</p>
                                 </div>
                             </div>
@@ -653,9 +662,9 @@ Welcome ${authUser.id }!!
                             <div class="col-sm-8">
                                 <div class="top-recipe-text">
                                     <div class="cat-name">KOREAN</div>
-                                    <a href="#">
-                                        <h4>샘밭 막국수</h4>
-                                    </a>
+                                    
+                                        <h3><b>샘밭 막국수</b></h3>
+                                    
                                     <p>3대가 46년째 운영하고 있는 일산 호수공원 가로수길 대표 맛집 막국수의 감칠맛이 남다르다.</p>
                                 </div>
                             </div>
@@ -673,7 +682,7 @@ Welcome ${authUser.id }!!
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="filter-item">
-                        <ul>
+                        <ul class="menu_local">
                             <li class="active" data-filter="*">전체</li>
                             <li data-filter=".mostpopular">일산</li>
                             <li data-filter=".meatlover">신촌</li>
@@ -775,7 +784,7 @@ Welcome ${authUser.id }!!
                     <div class="fs-left">
                         <div class="logo">
                             <a href="index.jsp">
-                                <img src="img/footer-logo.png" alt="">
+                                <img src="img/yummy.png" alt="">
                             </a>
                         </div>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
