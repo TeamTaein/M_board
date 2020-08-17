@@ -82,7 +82,12 @@ document.querySelector('.cont_form_login').style.display = "none";
 .top-recipe h3 {
 	color: maroon;
 }
-
+.fr-item-text p {
+	font-size: 26px;
+}
+.fs-left p {
+	font-size: 26px;
+}
  
 * {
   margin: 0px auto;
@@ -502,7 +507,7 @@ Welcome ${authUser.id }!!
                         <li class="active"><a href="#">Home</a></li>
                         <li><a href="#">Pages</a>
                         <ul class="sub-menu">                                
-                                <li><a href="recipe.html">Notice</a></li>
+                                <li><a href="notice.jsp">Notice</a></li>
                                 <li><a href="${ctxPath }/article/list.do">Review</a></li>
                                 <li><a href="logout.do">Logout</a></li>
                             </ul> 
@@ -755,8 +760,8 @@ Welcome ${authUser.id }!!
                         </div>
                         <div class="fr-item-text">
                             <h4>Sunday Brunch: Spaghetti and Eggs Recipe</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                ut labore et dolore magna aliqua.</p>
+                            <p>Fry the eggs gently in the oil, until the whites are 
+                            just about set and the yolks still quite runny. Drain the pasta, and toss with the eggs and oil, breaking up the whites ...</p>
                         </div>
                     </div>
                 </div>
@@ -767,8 +772,8 @@ Welcome ${authUser.id }!!
                         </div>
                         <div class="fr-item-text">
                             <h4>Sunday Brunch: Spaghetti and Eggs Recipe</h4>
-                            <p>Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                                aliqua. Quis ipsum suspendisse ultrices gravida.</p>
+                            <p>Just like mom's homemade spaghetti, except made even better (and easier!) in one pan
+                             – the pasta and eggs are cooked right in! Print Recipe</p>
                         </div>
                     </div>
                 </div>
