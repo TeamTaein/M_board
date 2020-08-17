@@ -280,6 +280,7 @@ cursor: pointer;
  font-weight: 400;
 margin-top: 15px;
  color: #fff;
+ font-size: 25px;
 }
 /* ----------------------------------
 background text    

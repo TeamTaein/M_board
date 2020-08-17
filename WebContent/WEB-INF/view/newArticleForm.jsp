@@ -17,6 +17,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
  
 <title>게시글 쓰기</title>
+
 <style>
 .form_box {
     background-color: #ffffff;
@@ -134,6 +135,7 @@ form b{
 <br />
 <input id="file_upload" type="file" name="file1" accept="image/*" />
 </div>
+
 
 <input class="submit_btn" type="submit" value="새 글 등록" />
 <input class="submit_btn" type="reset" value="다시쓰기" />
