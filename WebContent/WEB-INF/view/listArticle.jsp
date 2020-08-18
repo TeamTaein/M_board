@@ -100,6 +100,7 @@ table.type09 td {
 }
 #search_text{
 	border: none;
+	border-bottom: 1px solid;
 } 
 #search_group{
 	border: none;
