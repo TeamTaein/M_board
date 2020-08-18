@@ -1,0 +1,270 @@
+@charset "UTF-8";
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
+</style>
+html,
+
+body{
+	font-family: 'Nanum Pen Script', cursive;	
+}
+p {
+	font-family: 'Nanum Pen Script', cursive;
+	font-size: 50px;
+}
+
+a {
+	font-family: 'Nanum Pen Script', cursive;
+	font-size: 30px;
+}
+
+
+/*---------------------
+  Header
+-----------------------*/
+
+.header-section {
+	padding-top: 65px;
+	padding-bottom: 30px;
+}
+
+.header-section .logo {
+	text-align: center;
+	margin-bottom: 92px;
+}
+
+.header-section .logo a {
+	display: inline-block;
+}
+
+.header-section .nav-menu {
+	position: relative;	
+	
+}
+
+.header-section .nav-menu .main-menu {
+	text-align: center;
+	
+}
+
+.header-section .nav-menu .main-menu ul li {
+	display: inline-block;
+	margin-right: 60px;
+	position: relative;
+}
+
+.header-section .nav-menu .main-menu ul li:last-child {
+	margin-right: 0;
+}
+
+.header-section .nav-menu .main-menu ul li:last-child:after {
+	display: none;
+}
+
+.header-section .nav-menu .main-menu ul li:hover a {
+	color: #FC0254;
+}
+
+.header-section .nav-menu .main-menu ul li:hover a:after {
+	opacity: 1;
+}
+
+.header-section .nav-menu .main-menu ul li.active a {
+	color: #FC0254;
+}
+
+.header-section .nav-menu .main-menu ul li.active a:after {
+	opacity: 1;
+}
+
+.header-section .nav-menu .main-menu ul li:after {
+	position: absolute;
+	right: -35px;
+	top: 4px;
+	height: 21px;
+	width: 2px;
+	background: #BBBCC0;
+	content: "";
+}
+
+.header-section .nav-menu .main-menu ul li a {
+	color: #353535;
+	font-size: 20px;
+	font-weight: 700;
+	padding: 5px;
+	position: relative;
+	-webkit-transition: all 0.2s;
+	transition: all 0.2s;
+}
+
+.header-section .nav-menu .main-menu ul li a:after {
+	position: absolute;
+	left: 0;
+	bottom: -3px;
+	width: 100%;
+	height: 2px;
+	background: #FC0254;
+	content: "";
+	opacity: 0;
+	-webkit-transition: all 0.2s;
+	transition: all 0.2s;
+}
+
+.header-section .nav-menu .main-menu ul li:hover .sub-menu {
+	visibility: visible;
+	opacity: 1;
+	margin-top: 16px;
+}
+
+.header-section .nav-menu .main-menu ul .sub-menu {
+	position: absolute;
+	list-style: none;
+	width: 220px;
+	left: 0;
+	top: 100%;
+	padding: 20px 0 10px;
+	visibility: hidden;
+	opacity: 0;
+	margin-top: 50px;
+	text-align: left;
+	background: #fff;
+	z-index: 99;
+	-webkit-transition: all 0.4s;
+	transition: all 0.4s;
+	-webkit-box-shadow: 2px 7px 20px rgba(0, 0, 0, 0.05);
+	box-shadow: 2px 7px 20px rgba(0, 0, 0, 0.05);
+}
+
+.header-section .nav-menu .main-menu ul .sub-menu li {
+	display: block;
+	margin-right: 0;
+}
+
+.header-section .nav-menu .main-menu ul .sub-menu li:after {
+	display: none;
+}
+
+.header-section .nav-menu .main-menu ul .sub-menu li a {
+	display: block;
+	color: #000;
+	margin-left: 0;
+	padding: 5px 20px;
+	font-size: 16px;
+}
+
+.header-section .nav-menu .main-menu ul .sub-menu li a:after {
+	display: none;
+}
+
+.header-section .nav-menu .main-menu ul .sub-menu li a:hover {
+	color: #FC0254;
+}
+
+.header-section .nav-menu .nav-right {
+	position: absolute;
+	right: 150px;
+	top: -2px;
+	font-size: 21px;
+	color: #939394;
+}
+
+.header-section .nav-menu .nav-right i {
+	cursor: pointer;
+}
+
+.slicknav_menu {
+	display: none;
+}
+
+/*---------------------
+  Categories Filter
+-----------------------*/
+
+.categories-filter-section {
+	padding-bottom: 120px;	
+}
+
+.categories-filter-section .filter-item {
+	margin-bottom: 67px;	
+}
+
+.categories-filter-section .filter-item ul li {
+	list-style: none;
+	color: #353535;
+	font-family: 'Nanum Pen Script', cursive;
+	display: inline-block;
+	padding: 15px 42px;
+	font-weight: 700;
+	margin-right: -4px;
+	cursor: pointer;
+	position: relative;
+	z-index: 1;	
+}
+
+.categories-filter-section .filter-item ul li.active {
+	color: #fff;
+}
+
+.categories-filter-section .filter-item ul li.active::before {
+	opacity: 1;
+}
+
+.categories-filter-section .filter-item ul li.active::after {
+	opacity: 1;
+}
+
+.categories-filter-section .filter-item ul li::before {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: #FC0254;
+	content: "";
+	z-index: -1;
+	opacity: 0;
+}
+
+.categories-filter-section .filter-item ul li::after {
+	position: absolute;
+	left: 50%;
+	bottom: -12px;
+	border-top: 20px solid #FC0254;
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	-webkit-transform: translateX(-10px);
+	transform: translateX(-10px);
+	content: "";
+	z-index: -1;
+	opacity: 0;
+}
+
+.cf-filter {
+	overflow: hidden;
+}
+
+.cf-filter .cf-item {
+	float: left;
+	width: calc(20% - 32px);
+	margin-right: 40px;
+	margin-bottom: 30px;
+}
+
+.cf-filter .cf-item:last-child {
+	margin-right: 0;
+}
+
+.cf-filter .cf-item .cf-item-pic img {
+	min-width: 100%;
+}
+
+.cf-filter .cf-item .cf-item-text {
+	text-align: center;
+	padding: 0 15px;
+	padding-top: 18px;
+}
+
+.cf-filter .cf-item .cf-item-text h5 {
+	color: #353535;
+	font-weight: 700;
+	line-height: 27px;
+}

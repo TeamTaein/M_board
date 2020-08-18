@@ -15,6 +15,8 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cl`oudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/korea-font.css" type="text/css">
 <script>
 /* ------------------------------------ Click on login and Sign Up to  changue and view the effect
 ---------------------------------------
@@ -69,12 +71,29 @@ document.querySelector('.cont_form_login').style.display = "none";
 /* ------------------------------------ Click on login and Sign Up to  changue and view the effect
 ---------------------------------------
 */
-
+.menu_local{
+	font-family: 'Nanum Pen Script', cursive;
+	font-size: 30px;
+}
+.top-recipe p {
+	font-family: 'Nanum Pen Script', cursive;
+	font-size: 25px;
+}
+.top-recipe h3 {
+	color: maroon;
+}
+.fr-item-text p {
+	font-size: 26px;
+}
+.fs-left p {
+	font-size: 26px;
+}
+ 
 * {
   margin: 0px auto;
   padding: 0px;
   text-align: center;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Nanum Pen Script', cursive;
 }
 
 .cotn_principal {
@@ -266,6 +285,7 @@ cursor: pointer;
  font-weight: 400;
 margin-top: 15px;
  color: #fff;
+ font-size: 25px;
 }
 /* ----------------------------------
 background text    
@@ -406,29 +426,427 @@ text-align: left;
 }
 
 .cont_form_login > h2 {
-margin-top: 110px; 
-font-weight: 400;
-  color: #757575;
+	margin-top: 110px; 
+	font-weight: 400;
+    color: #757575;
 }
 .cont_form_login > a,.cont_form_sign_up > a  {
-  color: #757575;
+    color: #757575;
     position: relative;
     float: left;
     margin: 10px;
-margin-left: 30px;
+	margin-left: 30px;
 }
+
+.welcome{
+	font-family: 'Nanum Pen Script', cursive;
+	font-size: 20px;
+	float: right;
+}
+
+.welcome a {
+	font-size: 20px;
+}
+
+
 </style>
-<title>회원제 게시판 예제</title>
+<title>Welcome to Yummy!</title>
 </head>
 <body>
 
 <u:isLogin>
-	${authUser.id}님, 안녕하세요 <br />
-	<a href="logout.do" class="text-danger">[로그아웃하기]</a>
-	<a href="${ctxPath }/article/write.do">[글 작성]</a>
-	<a href="changePwd.do">[암호변경하기]</a>
+<div>
+<div class="welcome">
 
-	<a href="${ctxPath }/article/list.do">[목록보기] </a>
+Welcome ${authUser.id }!!
+<a href="changePwd.do" class="text-info">[암호변경]</a>
+
+</div>
+
+</div>
+	<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Yoga Studio Template">
+    <meta name="keywords" content="Yoga, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Yummy</title>
+
+    <!-- Google Font -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="css/korea-font.css" type="text/css">
+
+</head>
+
+<body>
+   <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Header Section Begin -->
+    <header class="header-section">
+        <div class="container">
+            <div class="logo">
+                <a href="index.jsp"><img src="img/yummy.png" alt=""></a>
+            </div>
+            <div class="nav-menu">
+                <nav class="main-menu mobile-menu">
+                    <ul>                    
+                        <li class="active"><a href="#">Home</a></li>
+                        <li><a href="#">Pages</a>
+                        <ul class="sub-menu">                                
+                                <li><a href="notice.jsp">Notice</a></li>
+                                <li><a href="${ctxPath }/article/list.do">Review</a></li>
+                                <li><a href="logout.do">Logout</a></li>
+                            </ul> 
+                        </li>
+                        <li><a href="notice.jsp">Notice</a></li>
+                        <li><a href="${ctxPath }/article/list.do">Review</a></li>
+                        <li><a href="logout.do" class="text-danger">Logout</a></li>
+                    </ul>
+                </nav>                
+            </div>
+            
+        </div>
+    </header>
+    <!-- Header End -->
+
+    <!-- Page Top Recipe Section Begin -->
+    <section class="page-top-recipe">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 order-lg-2">
+                    <div class="pt-recipe-item large-item">
+                        <div class="pt-recipe-img set-bg" data-setbg="img/recipe-1.jpg">
+                            <i class="fa fa-plus"></i>
+                        </div>
+                        <div class="pt-recipe-text">
+                            <span>March 10, 2019</span>
+                            <h3>신촌 라구식당  - 라구 파스타 & 라쟈냐</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 order-lg-1">
+                    <div class="pt-recipe-item">
+                        <div class="pt-recipe-img set-bg" data-setbg="img/recipe-3.jpg">
+                            <i class="fa fa-plus"></i>
+                        </div>
+                        <div class="pt-recipe-text">
+                            <h4>신촌 양조주택  - 로제 누릉지 통닭</h4>
+                        </div>
+                    </div>
+                    <div class="pt-recipe-item">
+                        <div class="pt-recipe-img set-bg" data-setbg="img/recipe-2.jpg">
+                            <i class="fa fa-plus"></i>
+                        </div>
+                        <div class="pt-recipe-text">
+                            <h4>이대 까이식당 - 동남아식 치킨 라이스</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 order-lg-3">
+                    <div class="pt-recipe-item">
+                        <div class="pt-recipe-img set-bg" data-setbg="img/recipe-4.jpg">
+                            <i class="fa fa-plus"></i>
+                        </div>
+                        <div class="pt-recipe-text">
+                            <h4>신촌 네이버후드 - 마르게리따 피자</h4>
+                        </div>
+                    </div>
+                    <div class="pt-recipe-item">
+                        <div class="pt-recipe-img set-bg" data-setbg="img/recipe-5.jpg">
+                            <i class="fa fa-plus"></i>
+                        </div>
+                        <div class="pt-recipe-text">
+                            <h4>일산 샘밭 막국수 - 막국수</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Page Top Recipe Section End -->
+
+    <!-- Top Recipe Section Begin -->
+    <section class="top-recipe spad">
+        <div class="section-title">
+            <h5>Top Restaurant this Week</h5>
+        </div>
+        <div class="container po-relative">
+            <div class="plus-icon">
+                <i class="fa fa-plus"></i>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="top-recipe-item large-item">
+                        <div class="top-recipe-img set-bg" data-setbg="img/top-recipe/recipe-1.jpg">
+                            <i class="fa fa-plus"></i>
+                        </div>
+                        <div class="top-recipe-text">
+                            <div class="cat-name">Italian</div>
+                            
+                                <h3><b>라구 파스타 & 라자냐</b></h3>
+                            
+                            <p>와인과 함께 끓여 풍미를 살린 비프 라구 소스로 만든 마있는 파스타와 라자냐</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="top-recipe-item">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="top-recipe-img set-bg" data-setbg="img/top-recipe/recipe-2.jpg">
+                                    <i class="fa fa-plus"></i>
+                                </div>
+                            </div>
+                            <div class="col-sm-8">
+                                <div class="top-recipe-text">
+                                    <div class="cat-name">Asian cuisine</div>
+                                    
+                                        <h3><b>동남아식 치킨라이스</b></h3>
+                                    
+                                    <p>동남아의 소울푸드 부드러운 닭다리살과 닭육수로 만든 밥을 특제 소스와 함께 즐겨보자</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="top-recipe-item">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="top-recipe-img set-bg" data-setbg="img/top-recipe/recipe-3.jpg">
+                                    <i class="fa fa-plus"></i>
+                                </div>
+                            </div>
+                            <div class="col-sm-8">
+                                <div class="top-recipe-text">
+                                    <div class="cat-name">Fusion</div>
+                                    
+                                        <h3><b>로제 누릉지 통닭</b></h3>
+                                    
+                                    <p>서강대 앞 경의선 숲길을 따라가면 만나볼 수 있는 분위기 좋은 이탈리안 퓨전 디쉬 레스토랑</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="top-recipe-item">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="top-recipe-img set-bg" data-setbg="img/top-recipe/recipe-4.jpg">
+                                    <i class="fa fa-plus"></i>
+                                </div>
+                            </div>
+                            <div class="col-sm-8">
+                                <div class="top-recipe-text">
+                                    <div class="cat-name">Italian</div>
+                                    
+                                        <h3><b>마르게리따 피자</b></h3>
+                                    
+                                    <p>이탈리안식 마르게리따와 미국식 도우가 합쳐진 마르게리따 피자 신선한 모짜렐라와 토마토, 바질의 본연의 맛을 잘 표현했다.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="top-recipe-item">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="top-recipe-img set-bg" data-setbg="img/top-recipe/recipe-5.jpg">
+                                    <i class="fa fa-plus"></i>
+                                </div>
+                            </div>
+                            <div class="col-sm-8">
+                                <div class="top-recipe-text">
+                                    <div class="cat-name">KOREAN</div>
+                                    
+                                        <h3><b>샘밭 막국수</b></h3>
+                                    
+                                    <p>3대가 46년째 운영하고 있는 일산 호수공원 가로수길 대표 맛집 막국수의 감칠맛이 남다르다.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Top Recipe Section End -->
+
+    <!-- Categories Filter Section Begin -->
+    <div class="categories-filter-section spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="filter-item">
+                        <ul class="menu_local">
+                            <li class="active" data-filter="*">전체</li>
+                            <li data-filter=".mostpopular">일산</li>
+                            <li data-filter=".meatlover">신촌</li>
+                            <li data-filter=".glutenfree">이대</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="cf-filter" id="category-filter">
+                <div class="cf-item mix all mostpopular">
+                    <div class="cf-item-pic">
+                        <img src="img/cate-filter/cate-filter-1.jpg" alt="">
+                    </div>
+                    <div class="cf-item-text">
+                        <h5>Sunday Brunch: Spaghetti and Eggs Recipe</h5>
+                    </div>
+                </div>
+                <div class="cf-item mix all mostpopular">
+                    <div class="cf-item-pic">
+                        <img src="img/cate-filter/cate-filter-2.jpg" alt="">
+                    </div>
+                    <div class="cf-item-text">
+                        <h5>Sunday Brunch: Spaghetti and Eggs Recipe</h5>
+                    </div>
+                </div>
+                <div class="cf-item mix all meatlover mostpopular">
+                    <div class="cf-item-pic">
+                        <img src="img/cate-filter/cate-filter-3.jpg" alt="">
+                    </div>
+                    <div class="cf-item-text">
+                        <h5>Sunday Brunch: Spaghetti and Eggs Recipe</h5>
+                    </div>
+                </div>
+                <div class="cf-item mix all meatlover">
+                    <div class="cf-item-pic glutenfree">
+                        <img src="img/cate-filter/cate-filter-4.jpg" alt="">
+                    </div>
+                    <div class="cf-item-text">
+                        <h5>Sunday Brunch: Spaghetti and Eggs Recipe</h5>
+                    </div>
+                </div>
+                <div class="cf-item mix all meatlover glutenfree">
+                    <div class="cf-item-pic">
+                        <img src="img/cate-filter/cate-filter-5.jpg" alt="">
+                    </div>
+                    <div class="cf-item-text">
+                        <h5>Sunday Brunch: Spaghetti and Eggs Recipe</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Categories Filter Section End -->
+
+    <!-- Feature Recipe Section Begin -->
+    <section class="feature-recipe">
+        <div class="section-title">
+            <h5>Featured Recipes</h5>
+        </div>
+        <div class="container po-relative">
+            <div class="plus-icon">
+                <i class="fa fa-plus"></i>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="fr-item">
+                        <div class="fr-item-img">
+                            <img src="img/feature-1.jpg" alt="">
+                        </div>
+                        <div class="fr-item-text">
+                            <h4>Sunday Brunch: Spaghetti and Eggs Recipe</h4>
+                            <p>Fry the eggs gently in the oil, until the whites are 
+                            just about set and the yolks still quite runny. Drain the pasta, and toss with the eggs and oil, breaking up the whites ...</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="fr-item">
+                        <div class="fr-item-img">
+                            <img src="img/feature-2.jpg" alt="">
+                        </div>
+                        <div class="fr-item-text">
+                            <h4>Sunday Brunch: Spaghetti and Eggs Recipe</h4>
+                            <p>Just like mom's homemade spaghetti, except made even better (and easier!) in one pan
+                             – the pasta and eggs are cooked right in! Print Recipe</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Feature Recipe Section End -->
+
+    <!-- Footer Section Begin -->
+    <footer class="footer-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5">
+                    <div class="fs-left">
+                        <div class="logo">
+                            <a href="index.jsp">
+                                <img src="img/yummy.png" alt="">
+                            </a>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo
+                            viverra maecenas accumsan lacus vel facilisis.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 offset-lg-1">
+                    <form action="#" class="subscribe-form">
+                        <h3>Subscribe to our newsletter</h3>
+                        <input type="email" placeholder="Your e-mail">
+                        <button type="submit">Subscribe</button>
+                    </form>
+                    <div class="social-links">
+                        <a href="#"><i class="fa fa-instagram"></i><span>Instagram</span></a>
+                        <a href="#"><i class="fa fa-pinterest"></i><span>Pinterest</span></a>
+                        <a href="#"><i class="fa fa-facebook"></i><span>Facebook</span></a>
+                        <a href="#"><i class="fa fa-twitter"></i><span>Twitter</span></a>
+                        <a href="#"><i class="fa fa-youtube"></i><span>Youtube</span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="copyright-text">
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Section End -->
+
+    <!-- Search model -->
+	<div class="search-model">
+		<div class="h-100 d-flex align-items-center justify-content-center">
+			<div class="search-close-switch">+</div>
+			<form class="search-model-form">
+				<input type="text" id="search-input" placeholder="Search here.....">
+			</form>
+		</div>
+	</div>
+	<!-- Search model end -->
+
+    <!-- Js Plugins -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.slicknav.js"></script>
+    <script src="js/jquery.nice-select.min.js"></script>
+    <script src="js/mixitup.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
 
 
 </u:isLogin>
@@ -444,7 +862,7 @@ margin-left: 30px;
 <div class="cont_ba_opcitiy">
         
         <h2>LOGIN</h2>  
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> 
+  <p>로그인 하여 맛집에 대한 <br /> 솔직한 리뷰를 감상하세요</p> 
   <button class="btn_login" onclick="cambiar_login()">LOGIN</button>
   </div>
   </div>
@@ -453,8 +871,7 @@ margin-left: 30px;
   <h2>SIGN UP</h2>
 
   
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-
+  <p>YUMMY 커뮤니티의 <br /> 회원이 되려면 </p>
   <button class="btn_sign_up" onclick="cambiar_sign_up()">SIGN UP</button>
 </div>
   </div>
@@ -463,13 +880,13 @@ margin-left: 30px;
     
     <div class="cont_back_info">
        <div class="cont_img_back_grey">
-       <img src="https://images.unsplash.com/42/U7Fc1sy5SCUDIu4tlJY3_NY_by_PhilippHenzler_philmotion.de.jpg?ixlib=rb-0.3.5&q=50&fm=jpg&crop=entropy&s=7686972873678f32efaf2cd79671673d" alt="" />
+       <img src="login-image.jpg" alt="" />
        </div>
        
     </div>
 <div class="cont_forms">
     <div class="cont_img_back_">
-       <img src="https://images.unsplash.com/42/U7Fc1sy5SCUDIu4tlJY3_NY_by_PhilippHenzler_philmotion.de.jpg?ixlib=rb-0.3.5&q=50&fm=jpg&crop=entropy&s=7686972873678f32efaf2cd79671673d" alt="" />
+       <img src="login-image.jpg" alt="" />
        </div>
        
   <form action="login.do" method="post">
@@ -487,7 +904,7 @@ margin-left: 30px;
    <div class="cont_form_sign_up">
 <a href="#" onclick="ocultar_login_sign_up()"><i class="material-icons">&#xE5C4;</i></a>
     <form action="join.do" method="post">
-    <br /><br />
+    <br /><br /><br />
      <h2>SIGN UP</h2><br />
 <input type="email" placeholder="Email" name="email" value="${param.email}" />
 <c:if test="${!empty errors.email}"><script type="text/javascript">alert('이메일을 입력해주세요');</script></c:if>
@@ -501,7 +918,10 @@ margin-left: 30px;
 <c:if test="${!empty errors.id}"><script type="text/javascript">alert('닉네임을 입력해주세요');</script></c:if>
 <label ><input type="radio" name="gender" value="male" checked />남자</label>
 <label ><input type="radio" name="gender" value="femail" />여자</label><br />
-<button class="btn_sign_up" onclick="cambiar_sign_up()">SIGN UP</button>
+<button class="btn_sign_up" onclick="cambiar_sign_up()">SIGN UP </button>
+
+
+
 
 </form>
   </div>

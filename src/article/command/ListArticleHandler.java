@@ -18,7 +18,6 @@ public class ListArticleHandler implements CommandHandler {
 		//pageNo 파라미터 값을 이용해서 읽어올 페이지 번호를 구한다
 				String pageNoVal = req.getParameter("pageNo");
 				int pageNo = 1;
-				
 				if(pageNoVal != null) {
 					pageNo = Integer.parseInt(pageNoVal);
 				}
